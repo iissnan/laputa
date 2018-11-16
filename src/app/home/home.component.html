@@ -1,0 +1,17 @@
+<ul>
+  <li *ngFor="let platform of platforms">
+    <a [routerLink]="['/platforms', platform.slug]">
+      {{ platform.label }}
+    </a>
+  </li>
+</ul>
+
+<ul>
+  <li *ngFor="let genre of genres">
+    <a [routerLink]="['/genres', genre.slug]">
+      {{ genre.label }}
+    </a>
+  </li>
+</ul>
+
+<laputa-game-list [games]="featuredGames"></laputa-game-list>
