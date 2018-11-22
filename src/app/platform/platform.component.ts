@@ -10,12 +10,12 @@ import { PlatformService } from './platform.service';
 @Component({
   selector: 'laputa-platform',
   templateUrl: './platform.component.html',
-  styleUrls: ['./platform.component.less']
+  styleUrls: ['./platform.component.scss']
 })
 export class PlatformComponent implements OnInit, OnDestroy {
 
   public name: string;
-  public games: GameInterface[];
+  public games: GameInterface[] = [];
   private subscription;
 
   constructor(

@@ -1,18 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 
-import { GameInterface, GenreInterface, PlatformInterface } from '../typings';
+import { GameInterface } from '../typings';
 import { HomeService } from './home.service';
 
 @Component({
   selector: 'laputa-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.less']
+  styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
 
   public featuredGames: GameInterface[];
-  public platforms: PlatformInterface[];
-  public genres: GenreInterface[];
 
   constructor(
     private homeService: HomeService
@@ -21,12 +19,6 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.homeService.loadFeaturedGames()
       .then(games => this.featuredGames = games);
-
-    this.homeService.loadPlatforms()
-      .then(platforms => this.platforms = platforms);
-
-    this.homeService.loadGenres()
-      .then(genres => this.genres = genres);
   }
 
 }

@@ -10,12 +10,12 @@ import { GenreService } from './genre.service';
 @Component({
   selector: 'laputa-genre',
   templateUrl: './genre.component.html',
-  styleUrls: ['./genre.component.less']
+  styleUrls: ['./genre.component.scss']
 })
 export class GenreComponent implements OnInit, OnDestroy {
 
-  public name: string;
-  public games: GameInterface[];
+  public label: string;
+  public games: GameInterface[] = [];
   private subscription;
 
   constructor(
@@ -32,7 +32,7 @@ export class GenreComponent implements OnInit, OnDestroy {
       }),
       filter(genre => !!genre)
     ).subscribe(genre => {
-      this.name = genre.fields.name;
+      this.label = genre.fields.label;
       this.genreService.loadGenreGames(genre.sys.id)
         .then(games => this.games = games);
     });

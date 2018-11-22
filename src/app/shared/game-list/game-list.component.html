@@ -1,21 +1,4 @@
-<ul *ngIf="games">
-  <li *ngFor="let game of games">
-    <p>
-      <img alt="" [src]="game.cover.fields.file.url" />
-    </p>
-    <p>{{ game.name }}</p>
-    <p class="game-list-platforms">
-      <span *ngFor="let platform of game.platforms">
-        {{ platform.fields.label }}
-      </span>
-    </p>
-    <p class="game-list-genre">
-      <span *ngFor="let genre of game.genres">
-        {{ genre.fields.label }}
-      </span>
-    </p>
-    <p class="game-list-rating">
-      {{ game.rating }}
-    </p>
-  </li>
-</ul>
+<div class="laputa-game-list" *ngIf="games">
+  <laputa-game-tile [game]="game" *ngFor="let game of games">
+  </laputa-game-tile>
+</div>

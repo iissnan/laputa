@@ -1,0 +1,61 @@
+@import "variables";
+
+:host {
+  display: block;
+  padding: 20px 20px 20px 20px;
+  width: 25%;
+  color: #6C7486;
+}
+
+.tile {
+  position: relative;
+  height: 100%;
+  padding: 0 20px 20px;
+  background: #000;
+  border: 1px solid transparent;
+  transition: all ease-in .2s;
+
+  &:hover{
+    border-color: $primary;
+    transform: scale(1.03);
+  }
+}
+
+.basic-information {
+  position: relative;
+  margin: 0 -20px;
+  height: 250px;
+}
+
+.basic-information:before {
+  z-index: 1;
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 50%;
+  background: rgba(0,0,0, .6);
+  background: linear-gradient(0deg, rgba(0,0,0,0.7) 0%, rgba(255,255,255,0) 100%);
+}
+
+.platforms-and-rating {
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 10px;
+  width: 100%;
+}
+
+.extra-information {
+  margin-top: 20px;
+}
+
+.name {
+  color: #E4ECFA;
+  font-size: 16px;
+}

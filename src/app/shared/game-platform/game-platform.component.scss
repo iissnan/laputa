@@ -1,0 +1,51 @@
+@import "variables";
+
+:host {
+  display: inline-block;
+  margin-right: 10px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.platform {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2px;
+  color: white;
+  border-radius: 2px;
+}
+
+.platform-with-icon {
+  padding: 1px 3px;
+}
+
+.platform-with-image .image {
+  width: 24px;
+  height: 24px;
+  border-radius: 2px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.nintendo-switch {
+  background-color: $platform-color-nintendo-switch;
+}
+
+.xbox-one {
+  background-color: $platform-color-xbox;
+}
+
+.steam {
+  background-color: $platform-color-steam;
+}
+
+.ios {
+  background-color: #136c9e;
+}
+
+.wegame .image {
+  background-image: url('/assets/images/wegame_128.png');
+}

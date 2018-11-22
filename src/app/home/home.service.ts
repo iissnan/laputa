@@ -12,18 +12,10 @@ export class HomeService {
   ) { }
 
   public loadFeaturedGames() {
-    return this.contentfulService.getGames()
+    return this.contentfulService.getGames({
+      'fields.featured': true,
+    })
       .then(games => games);
-  }
-
-  public loadPlatforms() {
-    return this.contentfulService.getPlatforms()
-      .then(entries => entries.map(entry => entry.fields));
-  }
-
-  public loadGenres() {
-    return this.contentfulService.getGenres()
-      .then(entries  => entries.map(entry => entry.fields));
   }
 
 }

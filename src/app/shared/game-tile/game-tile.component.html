@@ -1,0 +1,22 @@
+<div class="tile">
+  <div class="basic-information">
+    <laputa-game-cover [cover]="game.cover"></laputa-game-cover>
+    <div class="platforms-and-rating">
+      <div class="platforms">
+        <laputa-game-platform *ngFor="let platform of game.platforms"
+                              [name]="platform.fields.label"></laputa-game-platform>
+      </div>
+      <laputa-game-rating [rating]="game.rating"></laputa-game-rating>
+    </div>
+  </div>
+
+  <div class="extra-information">
+    <h3 class="name">{{ game.name }}</h3>
+
+    <div class="genres">
+      <laputa-game-genre [genre]="genre.fields.label"
+                         *ngFor="let genre of game.genres"></laputa-game-genre>
+    </div>
+  </div>
+
+</div>

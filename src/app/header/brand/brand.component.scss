@@ -1,0 +1,39 @@
+:host {
+  display: block;
+}
+
+.brand {
+  display: flex;
+  align-items: stretch;
+  height: 50px;
+}
+
+.brand a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #F6D87C;
+  transition: .2s ease;
+}
+
+.brand a:hover {
+  .indicator { opacity: 1; }
+}
+
+.name {
+  margin-left: 10px;
+  font-size: 20px;
+  font-family: 'Titillium Web', -apple-system, sans-serif;
+  letter-spacing: 2px;
+}
+
+.indicator {
+  opacity: 0;
+  transition: .2s ease;
+}
+
+.slogan {
+  align-self: center;
+  font-size: 12px;
+  color: #6C7486;
+}

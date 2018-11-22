@@ -1,0 +1,6 @@
+<span class="platform" [ngClass]="getClassName()" [title]="name" >
+  <fa-icon *ngIf="isIconSupport" class="icon"
+           [icon]="['fab', iconName]" size="lg"></fa-icon>
+  <span class="image" *ngIf="!isIconSupport"></span>
+</span>
+

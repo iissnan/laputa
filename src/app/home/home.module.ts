@@ -4,9 +4,10 @@ import { RouterModule } from '@angular/router';
 
 import { SharedModule } from '../shared/shared.module';
 import { HomeComponent } from './home.component';
+import { HeroComponent } from './hero/hero.component';
 
 @NgModule({
-  declarations: [HomeComponent],
+  declarations: [HomeComponent, HeroComponent],
   imports: [
     CommonModule,
     RouterModule,

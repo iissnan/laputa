@@ -10,7 +10,7 @@
       "prefix": "laputa",
       "schematics": {
         "@schematics/angular:component": {
-          "styleext": "less"
+          "styleext": "scss"
         }
       },
       "architect": {
@@ -27,8 +27,11 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.less"
+              "src/styles.scss"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [ "src/styles" ]
+            },
             "scripts": []
           },
           "configurations": {
@@ -83,7 +86,7 @@
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
             "styles": [
-              "src/styles.less"
+              "src/styles.scss"
             ],
             "scripts": [],
             "assets": [

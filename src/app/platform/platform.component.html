@@ -1,3 +1,6 @@
-<div *ngIf="name">{{ name }}</div>
+<h2 *ngIf="name">
+  {{ name }}
+  <span class="count" *ngIf="games.length > 0">共 {{ games.length }} 款游戏</span>
+</h2>
 
 <laputa-game-list [games]="games" *ngIf="games"></laputa-game-list>
