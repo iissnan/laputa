@@ -1,0 +1,30 @@
+language: node_js
+node_js: stable
+
+# Travis-CI Caching
+cache: npm
+
+branches:
+  only:
+    - master
+
+# S: Build Lifecycle
+install:
+  - npm install
+
+script:
+  - npm run build -- --prod
+  - cp dist/laputa/index.html dist/laputa/404.html
+
+# E: Build LifeCycle
+
+
+# GitHub Pages Deployment
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN
+  keep-history: true
+  on:
+    branch: master
+  local-dir: dist/laputa
