@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import "~normalize.css/normalize.css";
+@import "~load-awesome/css/ball-newton-cradle.css";
 @import "variables";
 
 * {
@@ -41,4 +42,18 @@ a {
 
 .tabular-number {
   font-family: 'Titillium Web', monospace;
+}
+
+.laputa-bootstrapping {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+
+  .la-ball-newton-cradle {
+    & > div:nth-child(1) { color: $loading-color-yellow; }
+    & > div:nth-child(2) { color: $loading-color-green; }
+    & > div:nth-child(3) { color: $loading-color-red; }
+    & > div:nth-child(4) { color: $loading-color-blue; }
+  }
 }

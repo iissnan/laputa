@@ -26,6 +26,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.5.0",
     "contentful": "^7.0.5",
     "core-js": "^2.5.4",
+    "load-awesome": "^1.1.0",
     "normalize.css": "^8.0.1",
     "rxjs": "~6.3.3",
     "viser-ng": "^2.4.2",
