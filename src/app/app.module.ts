@@ -10,6 +10,7 @@ import { FooterModule } from './footer/footer.module';
 import { HomeModule } from './home/home.module';
 import { PlatformModule } from './platform/platform.module';
 import { GenreModule } from './genre/genre.module';
+import { GameModule } from './game/game.module';
 
 @NgModule({
   declarations: [ AppComponent ],
@@ -23,6 +24,7 @@ import { GenreModule } from './genre/genre.module';
     HomeModule,
     PlatformModule,
     GenreModule,
+    GameModule,
   ],
   providers: [],
   bootstrap: [ AppComponent ]

@@ -1,7 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { from } from 'rxjs';
-import { filter, switchMap } from 'rxjs/operators';
+import { filter, switchMap, tap } from 'rxjs/operators';
+import { Entry } from 'contentful';
 
 import { GameInterface } from '../typings';
 import { GenreService } from './genre.service';
@@ -15,7 +16,7 @@ import { GenreService } from './genre.service';
 export class GenreComponent implements OnInit, OnDestroy {
 
   public label: string;
-  public games: GameInterface[] = [];
+  public games: Entry<GameInterface>[];
   private subscription;
 
   constructor(
@@ -25,6 +26,9 @@ export class GenreComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.subscription = this.activatedRoute.paramMap.pipe(
+      tap(_ => {
+        this.games = null;
+      }),
       switchMap( params => {
         const slug = params.get('slug');
 

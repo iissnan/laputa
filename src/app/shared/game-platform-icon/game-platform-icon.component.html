@@ -1,0 +1,4 @@
+<ng-container>
+  <fa-icon *ngIf="isIconSupport" class="icon" [icon]="['fab', iconName]" [size]="iconSize"></fa-icon>
+  <span *ngIf="!isIconSupport" class="image"></span>
+</ng-container>

@@ -18,16 +18,19 @@
   border-radius: 2px;
 }
 
-.platform-with-icon {
-  padding: 1px 3px;
-}
+.platform ::ng-deep {
+  .icon {
+    padding: 1px 3px;
+  }
 
-.platform-with-image .image {
-  width: 24px;
-  height: 24px;
-  border-radius: 2px;
-  background-size: contain;
-  background-repeat: no-repeat;
+  .image {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    border-radius: 2px;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
 }
 
 .nintendo-switch {
@@ -43,9 +46,9 @@
 }
 
 .ios {
-  background-color: #136c9e;
+  background-color: $platform-color-ios;
 }
 
-.wegame .image {
+.wegame ::ng-deep .image {
   background-image: url('/assets/images/wegame_128.png');
 }

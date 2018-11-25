@@ -3,6 +3,7 @@ import { PlatformInterface } from './platform.interface';
 import { GenreInterface } from './genre.interface';
 
 export interface GameInterface {
+  id: string;
   name: string;
   cover: Asset;
   platforms: Entry<PlatformInterface>;
@@ -10,4 +11,7 @@ export interface GameInterface {
   rating: number;
   digital: boolean;
   featured: boolean;
+  chinese: boolean;
+  players: number;
+  completed: boolean;
 }

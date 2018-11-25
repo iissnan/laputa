@@ -1,21 +1,10 @@
 <nav>
   <ul class="nav">
-    <li class="nav-item" [ngClass]="{ 'active': item.active }"
-        *ngFor="let item of items"
-        (mouseenter)="onMouseEnter($event, item)"
-        (mouseleave)="onMouseLeave($event, item)">
-      <button class="nav-item-trigger">
-        <fa-icon [icon]="item.trigger.icon" size="lg"></fa-icon>
-        <span class="trigger-label">{{ item.trigger.label }}</span>
-        <fa-icon icon="angle-down"></fa-icon>
-      </button>
-      <ul class="nav-children" *ngIf="item.children" [hidden]="!item.active">
-        <li class="nav-children-item" *ngFor="let child of item.children">
-          <a class="nav-children-link" [routerLink]="[item.childrenRouterPrefix, child.slug]">
-            {{ child.label }}
-          </a>
-        </li>
-      </ul>
+    <li laputaNavItem>
+      <laputa-nav-item-platforms></laputa-nav-item-platforms>
+    </li>
+    <li laputaNavItem>
+      <laputa-nav-item-genres></laputa-nav-item-genres>
     </li>
   </ul>
 </nav>

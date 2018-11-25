@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import "~normalize.css/normalize.css";
-@import "~load-awesome/css/ball-newton-cradle.css";
+@import "~load-awesome/css/ball-fussion.css";
 @import "variables";
 
 * {
@@ -50,10 +50,10 @@ a {
   justify-content: center;
   height: 100%;
 
-  .la-ball-newton-cradle {
-    & > div:nth-child(1) { color: $loading-color-yellow; }
+  .la-ball {
+    & > div:nth-child(1) { color: $loading-color-red; }
     & > div:nth-child(2) { color: $loading-color-green; }
-    & > div:nth-child(3) { color: $loading-color-red; }
-    & > div:nth-child(4) { color: $loading-color-blue; }
+    & > div:nth-child(3) { color: $loading-color-blue; }
+    & > div:nth-child(4) { color: $loading-color-yellow; }
   }
 }

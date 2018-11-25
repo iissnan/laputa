@@ -29,21 +29,27 @@ export class ContentfulService {
     });
   }
 
-  public getGames(options?: object): Promise<GameInterface[]> {
+  public getGames(options?: object): Promise<Entry<GameInterface>[]> {
     const query = this.getContentTypeQuery(
       environment.contentful.contentTypes.game,
       options,
     );
 
     return this.client.getEntries<GameInterface>(query)
-      .then(res => res.items.map(item => item.fields))
+      .then(res => res.items)
       .catch(_ => []);
+  }
+
+  public getGame(id: string): Promise<Entry<GameInterface>> {
+    return this.client.getEntry<GameInterface>(id, {
+      locale: this._locale,
+    });
   }
 
   public getPlatforms(options?: object): Promise<Entry<PlatformInterface>[]> {
     const query = this.getContentTypeQuery(
       environment.contentful.contentTypes.platform,
-      options,
+      { order: 'fields.order', ...options },
     );
 
     return this.client.getEntries<PlatformInterface>(query)
@@ -59,9 +65,10 @@ export class ContentfulService {
       .catch(_ => null);
   }
 
-  public getPlatformGames(id: string): Promise<GameInterface[]> {
+  public getPlatformGames(id: string): Promise<Entry<GameInterface>[]> {
     return this.getGames({
       'fields.platforms.sys.id': id,
+      'order': '-fields.rating,-sys.createdAt'
     });
   }
 
@@ -84,9 +91,10 @@ export class ContentfulService {
       .catch(_ => null);
   }
 
-  public getGenreGames(id: string): Promise<GameInterface[]> {
+  public getGenreGames(id: string): Promise<Entry<GameInterface>[]> {
     return this.getGames({
       'fields.genres.sys.id': id,
+      'order': '-fields.rating,-sys.createdAt',
     });
   }
 

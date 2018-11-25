@@ -1,0 +1,59 @@
+<div class="game" *ngIf="game; else loading">
+  <div class="cover">
+    <img [src]="game.fields.cover.fields.file.url + '?w=240'"
+         [alt]="game.fields.cover.fields.title" />
+  </div>
+
+  <div class="information">
+    <h2>{{ game.fields.name }}</h2>
+
+    <table>
+      <tr>
+        <td>游戏评分：</td>
+        <td>{{ game.fields.rating }}</td>
+      </tr>
+      <tr>
+        <td>游戏平台：</td>
+        <td>
+          <ng-container *ngFor="let platform of game.fields.platforms; let isLast = last">
+            {{ platform.fields.label }}
+                <ng-container *ngIf="!isLast">/</ng-container>
+          </ng-container>
+        </td>
+      </tr>
+      <tr>
+        <td>游戏类别：</td>
+        <td>
+          <ng-container *ngFor="let genre of game.fields.genres; let isLast = last">
+            {{ genre.fields.label }}
+            <ng-container *ngIf="!isLast">/</ng-container>
+          </ng-container>
+        </td>
+      </tr>
+      <tr>
+        <td>支持中文：</td>
+        <td>
+          {{ game.fields.chinese ? '是' : '否' }}
+        </td>
+      </tr>
+      <tr>
+        <td>是否推荐：</td>
+        <td>
+          {{ game.fields.featured ? '是' : '否' }}
+        </td>
+      </tr>
+      <tr>
+        <td>游戏人数：</td>
+        <td>{{ game.fields.players }}</td>
+      </tr>
+      <tr>
+        <td>已通关：</td>
+        <td>{{ game.fields.completed ? '是' : '否' }}</td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<ng-template #loading>
+  <laputa-spinner></laputa-spinner>
+</ng-template>

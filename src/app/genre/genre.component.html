@@ -1,6 +1,11 @@
-<h2 *ngIf="label">
-  {{ label }}
-  <span class="count" *ngIf="games.length > 0">共 {{ games.length }} 款游戏</span>
-</h2>
+<ng-container *ngIf="games; else loading">
+  <h2 *ngIf="label">
+    {{ label }}
+    <span class="count" *ngIf="games.length > 0">共 {{ games.length }} 款游戏</span>
+  </h2>
+  <laputa-game-list [games]="games" *ngIf="games"></laputa-game-list>
+</ng-container>
 
-<laputa-game-list [games]="games" *ngIf="games"></laputa-game-list>
+<ng-template #loading>
+  <laputa-spinner></laputa-spinner>
+</ng-template>

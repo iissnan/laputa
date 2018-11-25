@@ -14,6 +14,7 @@ export class HomeService {
   public loadFeaturedGames() {
     return this.contentfulService.getGames({
       'fields.featured': true,
+      'order': '-fields.rating,-sys.createdAt',
     })
       .then(games => games);
   }

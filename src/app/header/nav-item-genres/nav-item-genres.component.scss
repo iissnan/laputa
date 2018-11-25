@@ -1,0 +1,17 @@
+:host {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-children {
+  left: auto;
+  right: 0;
+  display: flex;
+  flex-wrap: wrap;
+  width: 220px;
+}
+
+.nav-children-item {
+  width: 50%;
+}

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Entry } from 'contentful';
 
 import { GameInterface } from '../typings';
 import { HomeService } from './home.service';
@@ -10,7 +11,7 @@ import { HomeService } from './home.service';
 })
 export class HomeComponent implements OnInit {
 
-  public featuredGames: GameInterface[];
+  public featuredGames: Entry<GameInterface>[];
 
   constructor(
     private homeService: HomeService
@@ -18,7 +19,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.homeService.loadFeaturedGames()
-      .then(games => this.featuredGames = games);
+      .then(entries => this.featuredGames = entries);
   }
 
 }

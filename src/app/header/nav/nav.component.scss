@@ -11,59 +11,11 @@ nav .nav {
   align-items: stretch;
   height: 50px;
 }
-nav li { list-style: none; }
 
-.nav-item {
-  position: relative;
-  display: flex;
-  align-items: stretch;
-  padding: 0 20px;
+nav li,
+nav ::ng-deep li {
+  list-style: none;
 }
 
-.nav-item-trigger {
-  display: flex;
-  align-items: center;
-  outline: none;
-  color: $body-text;
-  cursor: pointer;
-  background: none;
-  border: none;
 
-  span {
-    margin-right: 5px;
-  }
-}
-
-.trigger-label {
-  margin-left: 5px;
-}
-
-.nav-children {
-  position: absolute;
-  top: 50px;
-  left: 0;
-  padding: 10px 0;
-  background: #000;
-}
-
-.active .nav-children {
-  z-index: 1000;
-}
-
-.nav-children-item {
-  margin: 2px 0;
-}
-
-.nav-children-link {
-  display: flex;
-  align-items: center;
-  padding: 4px 18px;
-  white-space: nowrap;
-  color: $body-text;
-  transition: .2s ease;
-
-  &:hover {
-    color: white;
-    background: $primary;
-  }
-}
+@import "nav-item";

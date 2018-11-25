@@ -15,8 +15,8 @@ export class HeaderService {
       .then(entries => entries.map(entry => entry.fields));
   }
 
-  public loadGenres() {
-    return this.contentfulService.getGenres()
+  public loadGenres(query) {
+    return this.contentfulService.getGenres(query)
       .then(entries  => entries.map(entry => entry.fields));
   }
 }

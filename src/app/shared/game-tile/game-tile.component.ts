@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Entry } from 'contentful';
+
 import { GameInterface } from '../../typings';
 
 @Component({
@@ -8,7 +10,7 @@ import { GameInterface } from '../../typings';
 })
 export class GameTileComponent implements OnInit {
 
-  @Input() game: GameInterface;
+  @Input() game: Entry<GameInterface>;
 
   constructor() { }
 

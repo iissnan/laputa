@@ -1,3 +1,10 @@
-<h2>推荐游戏</h2>
-<laputa-game-list [games]="featuredGames"></laputa-game-list>
+<ng-container *ngIf="featuredGames; else loading">
+  <h2>推荐游戏</h2>
+  <laputa-game-list [games]="featuredGames"></laputa-game-list>
+</ng-container>
+
+<ng-template #loading>
+  <laputa-spinner></laputa-spinner>
+</ng-template>
+
 

@@ -1,6 +1,4 @@
 <span class="platform" [ngClass]="getClassName()" [title]="name" >
-  <fa-icon *ngIf="isIconSupport" class="icon"
-           [icon]="['fab', iconName]" size="lg"></fa-icon>
-  <span class="image" *ngIf="!isIconSupport"></span>
+  <laputa-game-platform-icon [platformName]="name" [iconSize]="'lg'"></laputa-game-platform-icon>
 </span>
 
