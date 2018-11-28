@@ -12,6 +12,7 @@ import { HomeService } from './home.service';
 export class HomeComponent implements OnInit {
 
   public featuredGames: Entry<GameInterface>[];
+  public latestGames: Entry<GameInterface>[];
 
   constructor(
     private homeService: HomeService
@@ -20,6 +21,9 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.homeService.loadFeaturedGames()
       .then(entries => this.featuredGames = entries);
+
+    this.homeService.loadLatestGames()
+      .then(entries => this.latestGames = entries);
   }
 
 }

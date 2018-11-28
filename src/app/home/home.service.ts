@@ -15,8 +15,16 @@ export class HomeService {
     return this.contentfulService.getGames({
       'fields.featured': true,
       'order': '-fields.rating,-sys.createdAt',
+      'limit': 8,
     })
       .then(games => games);
   }
 
+  public loadLatestGames() {
+    return this.contentfulService.getGames({
+      'order': '-sys.createdAt',
+      'limit': 8,
+    })
+      .then(games => games);
+  }
 }

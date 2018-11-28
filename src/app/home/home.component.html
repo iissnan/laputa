@@ -1,6 +1,13 @@
-<ng-container *ngIf="featuredGames; else loading">
-  <h2>推荐游戏</h2>
-  <laputa-game-list [games]="featuredGames"></laputa-game-list>
+<ng-container *ngIf="featuredGames && latestGames; else loading">
+  <div class="featured-games">
+    <h2>推荐游戏</h2>
+    <laputa-game-list [games]="featuredGames"></laputa-game-list>
+  </div>
+
+  <div class="latest-games">
+    <h2>最近更新</h2>
+    <laputa-game-list [games]="latestGames"></laputa-game-list>
+  </div>
 </ng-container>
 
 <ng-template #loading>
