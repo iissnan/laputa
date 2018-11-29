@@ -1,8 +1,5 @@
 <ng-container *ngIf="games; else loading">
-  <h2 *ngIf="name">
-    {{ name }}
-    <span class="count" *ngIf="games.length > 0">共 {{ games.length }} 款游戏</span>
-  </h2>
+  <laputa-game-headline [title]="name" [count]="games.length"></laputa-game-headline>
   <laputa-game-list [games]="games"></laputa-game-list>
 </ng-container>
 

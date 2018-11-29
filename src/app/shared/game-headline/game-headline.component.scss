@@ -1,0 +1,18 @@
+@import "variables";
+
+:host {
+  display: block;
+  margin: 40px 0;
+}
+
+.caption {
+  color: $light-4;
+  font-size: 20px;
+  font-weight: 300;
+  text-align: center;
+}
+
+.count {
+  text-align: center;
+  font-size: 14px;
+}

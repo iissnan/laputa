@@ -1,4 +1,5 @@
-<div class="laputa-game-list" *ngIf="games">
+<div class="caption" *ngIf="caption">{{ caption }}</div>
+<div class="list" *ngIf="games">
   <laputa-game-tile [game]="game" *ngFor="let game of games">
   </laputa-game-tile>
 </div>

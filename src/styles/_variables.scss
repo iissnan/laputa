@@ -1,15 +1,27 @@
+
+$dark-1: #121621;
+$dark-2: #171C28;
+$dark-3: #242836;
+$dark-4: #2F3545;
+
+$light-1: #3F4656;
+$light-2: #6C7486;
+$light-3: #99A3BA;
+$light-4: #E4ECFA;
+$light-5: #FFFFFF;
+
 $primary: #23C4F8;
 $secondary: #8C6FF0;
 
-$body-text: #99A3BA;
-$body-bg-color: #171C28;
+$body-text: $light-3;
+$body-bg-color: $dark-1;
 
 $platform-color-nintendo-switch: #E60012;
 $platform-color-xbox: #107c10;
 $platform-color-steam: #136c9e;
 $platform-color-ios: #136c9e;
 
-$loading-color-yellow: #F6D87C ;
+$loading-color-yellow: #F6D87C;
 $loading-color-green: #57CA81;
 $loading-color-red: #D04863;
 $loading-color-blue: #23C4F8;

@@ -11,6 +11,8 @@ import { GameGenreComponent } from './game-genre/game-genre.component';
 import { GameCoverComponent } from './game-cover/game-cover.component';
 import { GamePlatformIconComponent } from './game-platform-icon/game-platform-icon.component';
 import { SpinnerComponent } from './spinner/spinner.component';
+import { PaginationComponent } from './pagination/pagination.component';
+import { GameHeadlineComponent } from './game-headline/game-headline.component';
 
 
 @NgModule({
@@ -23,6 +25,8 @@ import { SpinnerComponent } from './spinner/spinner.component';
     GameCoverComponent,
     GamePlatformIconComponent,
     SpinnerComponent,
+    PaginationComponent,
+    GameHeadlineComponent,
   ],
   imports: [
     CommonModule,
@@ -31,6 +35,7 @@ import { SpinnerComponent } from './spinner/spinner.component';
   ],
   exports: [
     GameListComponent,
+    GameHeadlineComponent,
     GamePlatformIconComponent,
     SpinnerComponent,
   ],

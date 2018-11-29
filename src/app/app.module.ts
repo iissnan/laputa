@@ -11,6 +11,7 @@ import { HomeModule } from './home/home.module';
 import { PlatformModule } from './platform/platform.module';
 import { GenreModule } from './genre/genre.module';
 import { GameModule } from './game/game.module';
+import { FeaturedModule } from './featured/featured.module';
 
 @NgModule({
   declarations: [ AppComponent ],
@@ -25,6 +26,7 @@ import { GameModule } from './game/game.module';
     PlatformModule,
     GenreModule,
     GameModule,
+    FeaturedModule,
   ],
   providers: [],
   bootstrap: [ AppComponent ]

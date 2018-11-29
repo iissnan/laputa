@@ -10,6 +10,7 @@ import { GameInterface } from '../../typings';
 })
 export class GameListComponent implements OnInit {
 
+  @Input() caption: string;
   @Input() games: Entry<GameInterface>[];
 
   constructor() { }

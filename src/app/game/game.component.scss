@@ -1,5 +1,8 @@
+@import "variables";
+
 :host {
   display: block;
+  margin-top: 40px;
 }
 
 .game {
@@ -27,11 +30,11 @@
 .information table {
   margin-top: 20px;
   width: 100%;
-  background-color: #2A2C39;
+  background-color: $dark-2;
   border-collapse: collapse;
 
   tr:nth-of-type(odd) {
-    background: #373A4B;
+    background: $dark-3;
   }
 
   td {

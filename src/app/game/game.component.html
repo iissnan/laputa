@@ -9,11 +9,11 @@
 
     <table>
       <tr>
-        <td>游戏评分：</td>
+        <td>游戏评分</td>
         <td>{{ game.fields.rating }}</td>
       </tr>
       <tr>
-        <td>游戏平台：</td>
+        <td>游戏平台</td>
         <td>
           <ng-container *ngFor="let platform of game.fields.platforms; let isLast = last">
             {{ platform.fields.label }}
@@ -22,7 +22,7 @@
         </td>
       </tr>
       <tr>
-        <td>游戏类别：</td>
+        <td>游戏类别</td>
         <td>
           <ng-container *ngFor="let genre of game.fields.genres; let isLast = last">
             {{ genre.fields.label }}
@@ -31,23 +31,23 @@
         </td>
       </tr>
       <tr>
-        <td>支持中文：</td>
+        <td>支持中文</td>
         <td>
           {{ game.fields.chinese ? '是' : '否' }}
         </td>
       </tr>
       <tr>
-        <td>是否推荐：</td>
+        <td>是否推荐</td>
         <td>
           {{ game.fields.featured ? '是' : '否' }}
         </td>
       </tr>
       <tr>
-        <td>游戏人数：</td>
+        <td>游戏人数</td>
         <td>{{ game.fields.players }}</td>
       </tr>
       <tr>
-        <td>已通关：</td>
+        <td>已通关</td>
         <td>{{ game.fields.completed ? '是' : '否' }}</td>
       </tr>
     </table>
