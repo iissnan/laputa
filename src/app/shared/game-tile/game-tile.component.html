@@ -6,7 +6,7 @@
         <laputa-game-platform *ngFor="let platform of game.fields.platforms"
                               [name]="platform.fields.label"></laputa-game-platform>
       </div>
-      <laputa-game-rating [rating]="game.fields.rating"></laputa-game-rating>
+      <laputa-game-rating *ngIf="game.fields.rating" [rating]="game.fields.rating"></laputa-game-rating>
     </div>
   </div>
 

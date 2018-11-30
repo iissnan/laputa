@@ -1,8 +1,17 @@
 .rating {
+  position: relative;
+  display: flex;
+  line-height: 1;
   color: #F6D87C;
-  opacity: .9;
+  align-items: center;
+}
+
+.rating-number {
+  font-size: 20px;
+  font-weight: bold;
 }
 
 fa-icon {
-  margin-right: 1px;
+  margin-left: 2px;
+  opacity: .9;
 }

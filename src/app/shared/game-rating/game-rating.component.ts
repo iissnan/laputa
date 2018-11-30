@@ -8,14 +8,11 @@ import { Component, Input, OnInit } from '@angular/core';
 export class GameRatingComponent implements OnInit {
 
   @Input() rating: number;
-  public ratingRange: number[];
 
   constructor() { }
 
   ngOnInit() {
-    this.ratingRange = Array.from({
-      length: this.rating,
-    }, (v, k) => k + 1);
+
   }
 
 }
