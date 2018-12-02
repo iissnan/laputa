@@ -12,6 +12,7 @@ import { PlatformModule } from './platform/platform.module';
 import { GenreModule } from './genre/genre.module';
 import { GameModule } from './game/game.module';
 import { FeaturedModule } from './featured/featured.module';
+import { AllGamesModule } from './all-games/all-games.module';
 
 @NgModule({
   declarations: [ AppComponent ],
@@ -27,6 +28,7 @@ import { FeaturedModule } from './featured/featured.module';
     GenreModule,
     GameModule,
     FeaturedModule,
+    AllGamesModule,
   ],
   providers: [],
   bootstrap: [ AppComponent ]

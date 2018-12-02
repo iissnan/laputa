@@ -9,7 +9,15 @@ import {
   faGamepad,
   faThList,
   faHome,
+
 } from '@fortawesome/free-solid-svg-icons';
+
+import {
+  faCheckCircle,
+  faTimesCircle,
+  faUser,
+} from '@fortawesome/free-regular-svg-icons';
+
 import {
   faNintendoSwitch,
   faXbox,
@@ -39,6 +47,11 @@ export class IconModule {
       faGamepad,
       faThList,
       faHome,
+
+      // Regular Icons
+      faCheckCircle,
+      faTimesCircle,
+      faUser,
 
       // Brands Icons
       faNintendoSwitch,

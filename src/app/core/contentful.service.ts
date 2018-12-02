@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
-import { createClient, ContentfulClientApi, Entry } from 'contentful';
+import { createClient, ContentfulClientApi, Entry, EntryCollection } from 'contentful';
+import { Observable, from } from 'rxjs';
+import { map, take } from 'rxjs/operators';
 
 import { environment } from '../../environments/environment';
 import { GameInterface, GenreInterface, PlatformInterface } from '../typings';
@@ -11,6 +13,7 @@ import { GameInterface, GenreInterface, PlatformInterface } from '../typings';
 export class ContentfulService {
 
   private _locale: string;
+  private _perPage: number = 10;
   private readonly client: ContentfulClientApi;
 
   get locale() {
@@ -19,6 +22,14 @@ export class ContentfulService {
 
   set locale(locale: string) {
     this._locale = locale;
+  }
+
+  get perPage() {
+    return this._perPage;
+  }
+
+  set perPage(value: number) {
+    this._perPage = value;
   }
 
   constructor() {
@@ -38,6 +49,21 @@ export class ContentfulService {
     return this.client.getEntries<GameInterface>(query)
       .then(res => res.items)
       .catch(_ => []);
+  }
+
+  public getGamesByPage(page: number, perPage?: number, options?: object): Observable<EntryCollection<GameInterface>> {
+    const limit = perPage || this.perPage;
+    const skip = (page - 1) * limit;
+    const query = this.getContentTypeQuery(
+      environment.contentful.contentTypes.game,
+      { ...options, skip, limit, order: '-sys.createdAt' },
+    );
+
+    return from(
+      this.client.getEntries<GameInterface>(query),
+    ).pipe(
+      take(1)
+    );
   }
 
   public getGame(id: string): Promise<Entry<GameInterface>> {

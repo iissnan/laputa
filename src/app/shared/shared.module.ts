@@ -13,6 +13,8 @@ import { GamePlatformIconComponent } from './game-platform-icon/game-platform-ic
 import { SpinnerComponent } from './spinner/spinner.component';
 import { PaginationComponent } from './pagination/pagination.component';
 import { GameHeadlineComponent } from './game-headline/game-headline.component';
+import { PlatformClassNameDirective } from './platform-class-name.directive';
+import { RangePipe } from './range.pipe';
 
 
 @NgModule({
@@ -27,6 +29,8 @@ import { GameHeadlineComponent } from './game-headline/game-headline.component';
     SpinnerComponent,
     PaginationComponent,
     GameHeadlineComponent,
+    PlatformClassNameDirective,
+    RangePipe,
   ],
   imports: [
     CommonModule,
@@ -38,6 +42,9 @@ import { GameHeadlineComponent } from './game-headline/game-headline.component';
     GameHeadlineComponent,
     GamePlatformIconComponent,
     SpinnerComponent,
+    PlatformClassNameDirective,
+    PaginationComponent,
+    RangePipe,
   ],
 })
 export class SharedModule { }

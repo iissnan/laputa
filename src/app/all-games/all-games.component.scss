@@ -1,0 +1,34 @@
+@import "variables";
+
+.all-games {
+  table-layout: fixed;
+
+  li {
+    margin: 4px 0;
+    list-style: none;
+  }
+}
+
+.supported {
+  color: $loading-color-green;
+}
+
+.not-supported {
+  color: $loading-color-red;
+}
+
+.rating {
+  color: $loading-color-yellow;
+}
+
+.chinese {
+  text-align: center;
+}
+
+.player {
+  margin: 0 1px;
+}
+
+laputa-pagination {
+  margin-top: 20px;
+}

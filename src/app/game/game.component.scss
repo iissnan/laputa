@@ -29,21 +29,5 @@
 
 .information table {
   margin-top: 20px;
-  width: 100%;
-  background-color: $dark-2;
-  border-collapse: collapse;
-
-  tr:nth-of-type(odd) {
-    background: $dark-3;
-  }
-
-  td {
-    padding: 5px 10px;
-    width: 100px;
-    border: 1px solid #000;
-  }
-
-
-  td + td { width: auto; }
 }
 

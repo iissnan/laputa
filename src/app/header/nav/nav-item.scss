@@ -3,8 +3,16 @@
 .nav-item {
   position: relative;
   display: flex;
-  align-items: stretch;
+  align-items: center;
   padding: 0 20px;
+}
+
+.nav-item > a {
+  color: $light-3;
+}
+
+.nav-item-active > a {
+  color: $primary;
 }
 
 ::ng-deep {

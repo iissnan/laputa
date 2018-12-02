@@ -41,7 +41,7 @@ a {
 }
 
 .tabular-number {
-  font-family: 'Titillium Web', monospace;
+  font-family: $font-tabular-number;
 }
 
 .laputa-bootstrapping {
@@ -57,3 +57,41 @@ a {
     & > div:nth-child(4) { color: $loading-color-yellow; }
   }
 }
+
+table {
+  width: 100%;
+  background-color: $dark-2;
+  border-collapse: collapse;
+  text-align: left;
+
+  tr {
+    transition: .2s ease;
+
+    &:nth-of-type(odd) {
+      background: $dark-3;
+    }
+
+    &:hover {
+      background-color: $dark-1;
+    }
+  }
+
+  th, td {
+    padding: 10px;
+    border: 1px solid $dark-0;
+  }
+
+  th {
+    text-transform: uppercase;
+    background-color: $dark-0;
+  }
+
+  td + td { width: auto; }
+}
+
+.text-center { text-align: center; }
+
+.platform-nintendo-switch { color: $platform-color-nintendo-switch; }
+.platform-steam { color: $platform-color-steam; }
+.platform-xbox-one { color: $platform-color-xbox; }
+.platform-ios { color: $platform-color-ios; }

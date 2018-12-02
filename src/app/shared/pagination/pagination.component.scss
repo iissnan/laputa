@@ -1,0 +1,33 @@
+@import "variables";
+
+:host {
+  display: block;
+}
+
+.pagination {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  font-family: $font-tabular-number;
+}
+
+.pagination-item {
+  margin: 5px;
+  padding: 3px 10px;
+  font-size: 13px;
+  background: $dark-0;
+  text-decoration: none;
+  border-radius: 4px;
+  color: $light-3;
+
+  &:hover {
+    color: white;
+    background: darken($primary, 20);
+  }
+
+  &.active {
+    transform: scale(1.1);
+    color: white;
+    background: darken($primary, 20);
+  }
+}
