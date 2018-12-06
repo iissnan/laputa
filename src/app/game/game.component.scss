@@ -5,20 +5,22 @@
   margin-top: 40px;
 }
 
-.game {
+.meta {
   display: flex;
+  align-items: flex-start;
 }
 
 .cover {
   flex-grow: 0;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   min-width: 240px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.8);
 
   img {
     max-width: 100%;
-    max-height: 280px;
+    max-height: 100%;
   }
 }
 
@@ -27,7 +29,20 @@
   padding: 0 20px;
 }
 
-.information table {
+.screenshots {
+  margin-top: 20px
+}
+
+.screenshots-gallery {
+  display: flex;
+  flex-wrap: wrap;
   margin-top: 20px;
+}
+
+.screenshots-gallery img {
+  display: block;
+  padding: 0 20px 20px 0;
+  width: 25%;
+  height: 100%;
 }
 

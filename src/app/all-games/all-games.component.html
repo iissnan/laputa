@@ -15,7 +15,7 @@
       </thead>
       <tbody>
       <tr *ngFor="let game of games">
-        <td><a [routerLink]="['games', game.sys.id]">{{ game.fields.name }}</a></td>
+        <td><a [routerLink]="['/games', game.sys.id]">{{ game.fields.name }}</a></td>
         <td>
           <ul>
             <li *ngFor="let platform of game.fields.platforms;">

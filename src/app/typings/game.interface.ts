@@ -14,4 +14,11 @@ export interface GameInterface {
   chinese: boolean;
   players: number;
   completed: boolean;
+  screenshots: Asset[];
+  purchased: {
+    price: number;
+    date: string;
+    channel: string;
+    comment: string;
+  };
 }

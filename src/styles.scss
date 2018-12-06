@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import "~normalize.css/normalize.css";
+@import "~@angular/cdk/overlay-prebuilt.css";
 @import "~load-awesome/css/ball-fussion.css";
 @import "variables";
 
@@ -24,7 +25,7 @@ html, body {
 }
 
 body {
-  font: 14px/1.6 'Noto Sans SC', -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif,
+  font: 14px/1.6 Barlow, 'Noto Sans SC', -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif,
   "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   color: $body-text;
   background: $body-bg-color;
@@ -38,10 +39,6 @@ a {
   &:hover {
    text-decoration: underline;
   }
-}
-
-.tabular-number {
-  font-family: $font-tabular-number;
 }
 
 .laputa-bootstrapping {
@@ -95,3 +92,7 @@ table {
 .platform-steam { color: $platform-color-steam; }
 .platform-xbox-one { color: $platform-color-xbox; }
 .platform-ios { color: $platform-color-ios; }
+
+.g-backdrop.g-backdrop {
+  background-color: rgba(255, 255, 255, .15);
+}
