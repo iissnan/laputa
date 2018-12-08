@@ -13,7 +13,7 @@ import { GameInterface, GenreInterface, PlatformInterface } from '../typings';
 export class ContentfulService {
 
   private _locale: string;
-  private _perPage: number = 10;
+  private _perPage = 10;
   private readonly client: ContentfulClientApi;
 
   get locale() {

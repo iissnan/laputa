@@ -12,7 +12,7 @@ const routes: Routes = [
   {
     path: 'games',
     children: [
-      { path: '', component: AllGamesComponent },
+      { path: '', component: HomeComponent },
       { path: 'featured', component: FeaturedComponent },
       { path: ':id', component: GameComponent },
     ]
@@ -20,7 +20,7 @@ const routes: Routes = [
   { path: 'platforms/:slug', component: PlatformComponent },
   { path: 'genres/:slug', component: GenreComponent },
   { path: '', pathMatch: 'full', component: HomeComponent },
-  { path: '**', redirectTo: '' }
+  { path: '**', redirectTo: '/games' }
 ];
 
 @NgModule({

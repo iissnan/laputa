@@ -1,5 +1,72 @@
-.featured-games {
+@import "variables";
+
+.main {
+  display: flex;
+}
+
+aside {
   margin-top: 40px;
+  padding: 0 20px;
+  width: 240px;
+
+  h3 {
+    margin-top: 20px;
+    &:first-child { margin-top: 0; }
+  }
+
+  ul {
+    margin-top: 10px;
+  }
+
+  li {
+    margin: 2px 0;
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    margin: 8px 0;
+    padding: 4px 18px 4px 10px;
+    white-space: nowrap;
+    color: $body-text;
+    border-radius: 4px;
+    background: rgba($dark-3, 0.2);
+    transition: .2s ease;
+
+    &:hover,
+    &.active {
+      color: white;
+      background: $primary;
+      text-decoration: none;
+    }
+
+  }
+}
+
+.games-lists {
+  flex: 1;
+  margin: 40px 10px 0;
+}
+
+.main ::ng-deep {
+  laputa-game-tile {
+    padding: 15px;
+  }
+
+  .tile {
+    padding: 0 15px 15px;
+  }
+
+  .basic-information {
+    height: 200px;
+  }
+
+  .extra-information {
+    margin-top: 15px;
+  }
+}
+
+.featured-games {
 }
 
 .latest-games {

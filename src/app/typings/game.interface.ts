@@ -6,8 +6,8 @@ export interface GameInterface {
   id: string;
   name: string;
   cover: Asset;
-  platforms: Entry<PlatformInterface>;
-  genres: Entry<GenreInterface>;
+  platforms: Entry<PlatformInterface>[];
+  genres: Entry<GenreInterface>[];
   rating: number;
   digital: boolean;
   featured: boolean;
@@ -16,9 +16,11 @@ export interface GameInterface {
   completed: boolean;
   screenshots: Asset[];
   purchased: {
-    price: number;
-    date: string;
-    channel: string;
-    comment: string;
+    fields: {
+      price: number;
+      date: string;
+      channel: string;
+      comment: string;
+    };
   };
 }

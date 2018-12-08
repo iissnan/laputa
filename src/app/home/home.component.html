@@ -1,12 +1,43 @@
-<ng-container *ngIf="featuredGames && latestGames; else loading">
-  <div class="latest-games">
-    <laputa-game-list caption="最近更新" [games]="latestGames"></laputa-game-list>
-  </div>
+<div class="main" *ngIf="queryGames || (featuredGames && latestGames); else loading">
+  <aside>
+    <h3>游戏平台</h3>
+    <ul *ngIf="platforms$ | async as platforms">
+      <li *ngFor="let platform of platforms">
+        <a routerLink routerLinkActive="active"
+           [queryParams]="{ platform: platform.slug }"
+           queryParamsHandling="merge">
+          <laputa-game-platform-icon class="nav-children-link-icon"
+                                     [platformName]="platform.name"></laputa-game-platform-icon>
+          {{ platform.label }}
+        </a>
+      </li>
+    </ul>
 
-  <div class="featured-games">
-    <laputa-game-list caption="推荐游戏" [games]="featuredGames"></laputa-game-list>
-  </div>
-</ng-container>
+    <h3>游戏风格</h3>
+    <ul *ngIf="genres$ | async as genres">
+      <li *ngFor="let genre of genres">
+        <a routerLink routerLinkActive="active"
+           [queryParams]="{ genre: genre.slug }"
+           queryParamsHandling="merge">
+          {{ genre.label }}
+        </a>
+      </li>
+    </ul>
+  </aside>
+  <section class="games-lists">
+    <ng-container *ngIf="shouldDisplayLandingGames">
+      <div class="featured-games">
+        <laputa-game-list caption="推荐游戏" [games]="featuredGames"></laputa-game-list>
+      </div>
+      <div class="latest-games">
+        <laputa-game-list caption="最近更新" [games]="latestGames"></laputa-game-list>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="!shouldDisplayLandingGames">
+      <laputa-game-list caption="AAA" [games]="queryGames"></laputa-game-list>
+    </ng-container>
+  </section>
+</div>
 
 <ng-template #loading>
   <laputa-spinner></laputa-spinner>

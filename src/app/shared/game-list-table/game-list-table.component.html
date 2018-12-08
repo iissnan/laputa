@@ -1,0 +1,51 @@
+<ng-container *ngIf="games?.length > 0">
+  <table class="games-table">
+    <thead>
+    <tr>
+      <th>游戏名称</th>
+      <th>游戏平台</th>
+      <th>风格</th>
+      <th class="text-center" style="width: 60px">评分</th>
+      <th class="text-center" style="width: 60px">中文</th>
+      <th class="text-center" style="width: 90px">游玩人数</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let game of games">
+      <td><a [routerLink]="['/games', game.sys.id]">{{ game.fields.name }}</a></td>
+      <td>
+        <ul>
+          <li *ngFor="let platform of game.fields.platforms;">
+            <laputa-game-platform-icon [platformName]="platform.fields.name"
+                                       [laputaPlatformClassName]="platform.fields.name">
+            </laputa-game-platform-icon>
+            {{ platform.fields.label }}
+          </li>
+        </ul>
+      </td>
+      <td>
+          <span *ngFor="let genre of game.fields.genres; let isLast = last">
+            {{ genre.fields.label }}
+            <ng-container *ngIf="!isLast">/</ng-container>
+          </span>
+      </td>
+      <td class="rating text-center">
+        <ng-container *ngIf="game.fields.rating">
+          {{ game.fields.rating }}
+          <fa-icon icon="star" size="xs"></fa-icon>
+        </ng-container>
+      </td>
+      <td class="text-center" [ngClass]="{ supported: game.fields.chinese, 'not-supported': !game.fields.chinese }">
+        <fa-icon *ngIf="game.fields.chinese" [icon]="['far', 'check-circle']"></fa-icon>
+        <fa-icon *ngIf="!game.fields.chinese" [icon]="['far', 'times-circle']"></fa-icon>
+      </td>
+      <td>
+        <ng-container *ngIf="game.fields.players">
+          <fa-icon class="player" *ngFor="let item of game.fields.players + 1 | range: 1"
+                   [icon]="['far', 'user']" size="xs"></fa-icon>
+        </ng-container>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</ng-container>

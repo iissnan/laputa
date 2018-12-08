@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { from as $from } from 'rxjs';
 
 import { ContentfulService } from '../core/contentful.service';
 
@@ -12,19 +13,20 @@ export class HomeService {
   ) { }
 
   public loadFeaturedGames() {
-    return this.contentfulService.getGames({
+    const promise = this.contentfulService.getGames({
       'fields.featured': true,
       'order': '-fields.rating,-sys.createdAt',
       'limit': 8,
-    })
-      .then(games => games);
+    });
+
+    return $from(promise);
   }
 
   public loadLatestGames() {
-    return this.contentfulService.getGames({
+    const promise = this.contentfulService.getGames({
       'order': '-sys.createdAt',
       'limit': 8,
-    })
-      .then(games => games);
+    });
+    return $from(promise);
   }
 }

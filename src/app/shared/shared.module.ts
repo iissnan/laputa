@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 
 import { IconModule } from '../icon/icon.module';
 import { GameListComponent } from './game-list/game-list.component';
+import { GameListTableComponent } from './game-list-table/game-list-table.component';
 import { GameTileComponent } from './game-tile/game-tile.component';
 import { GamePlatformComponent } from './game-platform/game-platform.component';
 import { GameRatingComponent } from './game-rating/game-rating.component';
@@ -20,6 +21,7 @@ import { RangePipe } from './range.pipe';
 @NgModule({
   declarations: [
     GameListComponent,
+    GameListTableComponent,
     GameTileComponent,
     GamePlatformComponent,
     GameRatingComponent,
@@ -39,6 +41,7 @@ import { RangePipe } from './range.pipe';
   ],
   exports: [
     GameListComponent,
+    GameListTableComponent,
     GameHeadlineComponent,
     GamePlatformIconComponent,
     SpinnerComponent,
