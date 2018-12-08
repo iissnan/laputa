@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Entry } from 'contentful';
 import { from as $from, Observable, zip } from 'rxjs';
 import { map, switchMap, take } from 'rxjs/operators';
 
-import { GameInterface, GenreInterface, PlatformInterface } from '../typings';
+import { GameInterface, PlatformInterface } from '../typings';
 import { ContentfulService } from '../core/contentful.service';
 import { HomeService } from './home.service';
 
@@ -16,18 +16,20 @@ import { HomeService } from './home.service';
 export class HomeComponent implements OnInit {
 
   public platforms$: Observable<PlatformInterface[]>;
-  public genres$: Observable<GenreInterface[]>;
   public queryGames: Entry<GameInterface>[];
   public featuredGames: Entry<GameInterface>[];
   public latestGames: Entry<GameInterface>[];
+  public selectedPlatform: string;
   public shouldDisplayLandingGames = false;
+  public queryCaption: string;
+  public queryCount: number;
 
   private SUPPORTED_QUERY_PARAMS = {
     platform: 'platform',
-    genre: 'genre',
   };
 
   constructor(
+    private router: Router,
     private activatedRoute: ActivatedRoute,
     private contentfulService: ContentfulService,
     private homeService: HomeService
@@ -36,32 +38,39 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.onRouteQuery();
     this.loadPlatforms();
-    this.loadGenres();
+  }
+
+  public onPlatformSelected(platform) {
+    const isActive = this.selectedPlatform === platform;
+    const query = { platform: isActive ? null : platform };
+
+    this.router.navigate([''], {
+      relativeTo: this.activatedRoute,
+      queryParams: query,
+    }).then(_ => {
+      this.selectedPlatform = isActive ? '' : platform;
+    });
   }
 
   private onRouteQuery() {
     this.activatedRoute.queryParamMap.pipe(
       map(params => this.parseQueryParams(params)),
-    ).subscribe(({ hasSupportedQueryParams, platform, genre }) => {
+    ).subscribe(({ hasSupportedQueryParams, platform }) => {
       this.shouldDisplayLandingGames = !hasSupportedQueryParams;
 
-      if (hasSupportedQueryParams) {
-        this.loadQueryGames(platform, genre);
-      } else {
-        this.loadLandingGames();
-      }
+      hasSupportedQueryParams
+        ? this.loadQueryGames(platform)
+        : this.loadLandingGames();
     });
   }
 
   private parseQueryParams(params: ParamMap) {
     const platform = params.get(this.SUPPORTED_QUERY_PARAMS.platform);
-    const genre = params.get(this.SUPPORTED_QUERY_PARAMS.genre);
-    const hasSupportedQueryParams = platform || genre;
+    const hasSupportedQueryParams = !!platform;
 
     return {
       hasSupportedQueryParams: hasSupportedQueryParams,
       platform: platform,
-      genre: genre,
     };
   }
 
@@ -72,18 +81,12 @@ export class HomeComponent implements OnInit {
     );
   }
 
-  private loadGenres() {
-    this.genres$ = $from(this.contentfulService.getGenres()).pipe(
-      take(1),
-      map(entries => entries.map(entry => entry.fields)),
-    );
-  }
-
-  private loadQueryGames(queryPlatform, queryGenre) {
+  private loadQueryGames(queryPlatform) {
     const promise = queryPlatform ?
       $from(this.contentfulService.getPlatformBySlug(queryPlatform)).pipe(
         take(1),
         switchMap(platform => {
+          this.queryCaption = platform.fields.label;
           return this.contentfulService.getPlatformGames(platform.sys.id);
         })
       ) :
@@ -92,11 +95,8 @@ export class HomeComponent implements OnInit {
     $from(promise).pipe(
       take(1),
     ).subscribe(entries => {
-      this.queryGames = queryGenre ? entries.filter(entry => {
-        return entry.fields.genres && entry.fields.genres.some(genre => {
-          return genre.fields.slug === queryGenre;
-        });
-      }) : entries;
+      this.queryCount = entries.length;
+      this.queryGames = entries;
     });
   }
 

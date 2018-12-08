@@ -26,20 +26,31 @@ aside {
     display: flex;
     align-items: center;
     margin: 8px 0;
-    padding: 4px 18px 4px 10px;
-    white-space: nowrap;
+    padding: 4px 10px;
     color: $body-text;
     border-radius: 4px;
     background: rgba($dark-3, 0.2);
     transition: .2s ease;
+    text-decoration: none;
 
     &:hover,
     &.active {
       color: white;
       background: $primary;
-      text-decoration: none;
     }
+  }
 
+  .label {
+    margin-left: 5px;
+    flex: 1;
+  }
+
+  .active .remove {
+    align-self: flex-end;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: normal;
   }
 }
 

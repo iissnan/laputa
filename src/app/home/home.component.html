@@ -3,23 +3,12 @@
     <h3>游戏平台</h3>
     <ul *ngIf="platforms$ | async as platforms">
       <li *ngFor="let platform of platforms">
-        <a routerLink routerLinkActive="active"
-           [queryParams]="{ platform: platform.slug }"
-           queryParamsHandling="merge">
-          <laputa-game-platform-icon class="nav-children-link-icon"
-                                     [platformName]="platform.name"></laputa-game-platform-icon>
-          {{ platform.label }}
-        </a>
-      </li>
-    </ul>
-
-    <h3>游戏风格</h3>
-    <ul *ngIf="genres$ | async as genres">
-      <li *ngFor="let genre of genres">
-        <a routerLink routerLinkActive="active"
-           [queryParams]="{ genre: genre.slug }"
-           queryParamsHandling="merge">
-          {{ genre.label }}
+        <a routerLink [queryParams]="{ platform: platform.slug }"
+           (click)="onPlatformSelected(platform.slug)"
+           [class.active]="platform.slug === selectedPlatform">
+          <laputa-game-platform-icon [platformName]="platform.name"></laputa-game-platform-icon>
+          <span class="label">{{ platform.label }}</span>
+          <span class="remove" *ngIf="platform.slug === selectedPlatform">&times;</span>
         </a>
       </li>
     </ul>
@@ -34,7 +23,8 @@
       </div>
     </ng-container>
     <ng-container *ngIf="!shouldDisplayLandingGames">
-      <laputa-game-list caption="AAA" [games]="queryGames"></laputa-game-list>
+      <laputa-game-list [caption]="queryCaption" [count]="queryCount" [games]="queryGames">
+      </laputa-game-list>
     </ng-container>
   </section>
 </div>

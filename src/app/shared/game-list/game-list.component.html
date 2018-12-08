@@ -1,4 +1,7 @@
-<div class="caption" *ngIf="caption">{{ caption }}</div>
+<div class="caption" *ngIf="caption">
+  {{ caption }}
+  <small *ngIf="count" class="count">{{ count }} 款游戏</small>
+</div>
 <div class="list" *ngIf="games">
   <laputa-game-tile [game]="game" *ngFor="let game of games">
   </laputa-game-tile>
