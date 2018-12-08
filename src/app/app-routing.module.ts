@@ -13,14 +13,15 @@ const routes: Routes = [
     path: 'games',
     children: [
       { path: '', component: HomeComponent },
+      { path: 'all', component: AllGamesComponent },
       { path: 'featured', component: FeaturedComponent },
       { path: ':id', component: GameComponent },
     ]
   },
   { path: 'platforms/:slug', component: PlatformComponent },
   { path: 'genres/:slug', component: GenreComponent },
-  { path: '', pathMatch: 'full', component: HomeComponent },
-  { path: '**', redirectTo: '/games' }
+  { path: '', pathMatch: 'full', redirectTo: '/games' },
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({

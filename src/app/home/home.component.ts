@@ -44,7 +44,7 @@ export class HomeComponent implements OnInit {
     const isActive = this.selectedPlatform === platform;
     const query = { platform: isActive ? null : platform };
 
-    this.router.navigate([''], {
+    this.router.navigate(['.'], {
       relativeTo: this.activatedRoute,
       queryParams: query,
     }).then(_ => {
