@@ -6,7 +6,7 @@ import { ContentfulService } from '../core/contentful.service';
 @Injectable({
   providedIn: 'root'
 })
-export class HomeService {
+export class GamesService {
 
   constructor(
     private contentfulService: ContentfulService,

@@ -4,9 +4,9 @@ import { Entry } from 'contentful';
 import { from as $from, Observable, zip } from 'rxjs';
 import { map, switchMap, take, tap } from 'rxjs/operators';
 
-import { GameInterface, PlatformInterface } from '../typings';
-import { ContentfulService } from '../core/contentful.service';
-import { HomeService } from './home.service';
+import { GameInterface, PlatformInterface } from '../../typings';
+import { ContentfulService } from '../../core/contentful.service';
+import { GamesService } from '../games.service';
 
 @Component({
   selector: 'laputa-home',
@@ -33,7 +33,7 @@ export class HomeComponent implements OnInit {
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private contentfulService: ContentfulService,
-    private homeService: HomeService
+    private gamesService: GamesService
   ) { }
 
   ngOnInit() {
@@ -113,8 +113,8 @@ export class HomeComponent implements OnInit {
 
   private loadLandingGames() {
     zip(
-      this.homeService.loadFeaturedGames(),
-      this.homeService.loadLatestGames(),
+      this.gamesService.loadFeaturedGames(),
+      this.gamesService.loadLatestGames(),
     ).pipe(take(1)).subscribe(([featureGames, latestGames]) => {
       this.featuredGames = featureGames;
       this.latestGames = latestGames;

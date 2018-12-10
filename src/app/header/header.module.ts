@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
-import { IconModule } from '../icon/icon.module';
 import { SharedModule } from '../shared/shared.module';
 import { HeaderComponent } from './header.component';
 import { BrandComponent } from './brand/brand.component';
@@ -24,7 +23,6 @@ import { NavItemGenresComponent } from './nav-item-genres/nav-item-genres.compon
   imports: [
     CommonModule,
     RouterModule,
-    IconModule,
     SharedModule,
   ],
   exports: [ HeaderComponent ],

@@ -40,6 +40,7 @@ import { RangePipe } from './range.pipe';
     IconModule,
   ],
   exports: [
+    IconModule,
     GameListComponent,
     GameListTableComponent,
     GameHeadlineComponent,

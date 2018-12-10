@@ -2,17 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Entry } from 'contentful';
 
-import { ContentfulService } from '../core/contentful.service';
-import { GameInterface } from '../typings';
+import { ContentfulService } from '../../core/contentful.service';
+import { GameInterface } from '../../typings';
 import { switchMap } from 'rxjs/operators';
 
-
 @Component({
-  selector: 'laputa-all-games',
-  templateUrl: './all-games.component.html',
-  styleUrls: ['./all-games.component.scss']
+  selector: 'laputa-all',
+  templateUrl: './all.component.html',
+  styleUrls: ['./all.component.scss']
 })
-export class AllGamesComponent implements OnInit {
+export class AllComponent implements OnInit {
 
   public games: Entry<GameInterface>[];
   public currentPage: number;

@@ -5,8 +5,8 @@ import { from, Subscription } from 'rxjs';
 import { Entry } from 'contentful';
 import { Gallery, GalleryItem, ImageItem } from '@ngx-gallery/core';
 
-import { ContentfulService } from '../core/contentful.service';
-import { GameInterface } from '../typings';
+import { ContentfulService } from '../../core/contentful.service';
+import { GameInterface } from '../../typings';
 
 @Component({
   selector: 'laputa-game',
