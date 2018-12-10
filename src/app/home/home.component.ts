@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Entry } from 'contentful';
 import { from as $from, Observable, zip } from 'rxjs';
-import { map, switchMap, take } from 'rxjs/operators';
+import { map, switchMap, take, tap } from 'rxjs/operators';
 
 import { GameInterface, PlatformInterface } from '../typings';
 import { ContentfulService } from '../core/contentful.service';
@@ -23,6 +23,7 @@ export class HomeComponent implements OnInit {
   public shouldDisplayLandingGames = false;
   public queryCaption: string;
   public queryCount: number;
+  public isGamesLoading = true;
 
   private SUPPORTED_QUERY_PARAMS = {
     platform: 'platform',
@@ -47,21 +48,26 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['.'], {
       relativeTo: this.activatedRoute,
       queryParams: query,
-    }).then(_ => {
-      this.selectedPlatform = isActive ? '' : platform;
     });
   }
 
   private onRouteQuery() {
     this.activatedRoute.queryParamMap.pipe(
+      tap(_ => this.isGamesLoading = true),
       map(params => this.parseQueryParams(params)),
     ).subscribe(({ hasSupportedQueryParams, platform }) => {
       this.shouldDisplayLandingGames = !hasSupportedQueryParams;
+
+      this.updateSelectedPlatform(platform);
 
       hasSupportedQueryParams
         ? this.loadQueryGames(platform)
         : this.loadLandingGames();
     });
+  }
+
+  private updateSelectedPlatform(platform) {
+    this.selectedPlatform = platform;
   }
 
   private parseQueryParams(params: ParamMap) {
@@ -75,29 +81,34 @@ export class HomeComponent implements OnInit {
   }
 
   private loadPlatforms() {
-    this.platforms$ = $from(this.contentfulService.getPlatforms()).pipe(
+    this.platforms$ = this.contentfulService.getPlatforms().pipe(
       take(1),
-      map(entries => entries.map(entry => entry.fields)),
+      map(collection => collection.items.map(entry => entry.fields)),
     );
   }
 
   private loadQueryGames(queryPlatform) {
-    const promise = queryPlatform ?
-      $from(this.contentfulService.getPlatformBySlug(queryPlatform)).pipe(
-        take(1),
-        switchMap(platform => {
-          this.queryCaption = platform.fields.label;
-          return this.contentfulService.getPlatformGames(platform.sys.id);
-        })
-      ) :
-      this.contentfulService.getGames();
+    const promise = queryPlatform
+      ? this.loadQueryPlatformGames(queryPlatform)
+      : this.contentfulService.getGames();
 
     $from(promise).pipe(
       take(1),
     ).subscribe(entries => {
       this.queryCount = entries.length;
       this.queryGames = entries;
+      this.isGamesLoading = false;
     });
+  }
+
+  private loadQueryPlatformGames(queryPlatform) {
+    return this.contentfulService.getPlatformBySlug(queryPlatform).pipe(
+      take(1),
+      switchMap(platform => {
+        this.queryCaption = platform.fields.label;
+        return this.contentfulService.getPlatformGames(platform.sys.id);
+      })
+    );
   }
 
   private loadLandingGames() {
@@ -107,6 +118,7 @@ export class HomeComponent implements OnInit {
     ).pipe(take(1)).subscribe(([featureGames, latestGames]) => {
       this.featuredGames = featureGames;
       this.latestGames = latestGames;
+      this.isGamesLoading = false;
     });
   }
 }

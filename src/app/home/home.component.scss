@@ -54,12 +54,14 @@ aside {
   }
 }
 
-.games-lists {
+.content {
   flex: 1;
+  position: relative;
   margin: 40px 10px 0;
+  min-height: calc(100vh - 100px);
 }
 
-.main ::ng-deep {
+.content ::ng-deep {
   laputa-game-tile {
     padding: 15px;
   }

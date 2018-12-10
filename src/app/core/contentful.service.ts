@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { createClient, ContentfulClientApi, Entry, EntryCollection } from 'contentful';
-import { Observable, from } from 'rxjs';
-import { map, take } from 'rxjs/operators';
+import { Observable, from as $from } from 'rxjs';
+import { map, mapTo, take } from 'rxjs/operators';
 
 import { environment } from '../../environments/environment';
 import { GameInterface, GenreInterface, PlatformInterface } from '../typings';
@@ -59,7 +59,7 @@ export class ContentfulService {
       { ...options, skip, limit, order: '-sys.createdAt' },
     );
 
-    return from(
+    return $from(
       this.client.getEntries<GameInterface>(query),
     ).pipe(
       take(1)
@@ -72,23 +72,21 @@ export class ContentfulService {
     });
   }
 
-  public getPlatforms(options?: object): Promise<Entry<PlatformInterface>[]> {
+  public getPlatforms(options?: object): Observable<EntryCollection<PlatformInterface>> {
     const query = this.getContentTypeQuery(
       environment.contentful.contentTypes.platform,
       { order: 'fields.order', ...options },
     );
 
-    return this.client.getEntries<PlatformInterface>(query)
-      .then(res => res.items)
-      .catch(_ => []);
+    return $from(this.client.getEntries<PlatformInterface>(query));
   }
 
-  public getPlatformBySlug(slug: string): Promise<Entry<PlatformInterface>> {
+  public getPlatformBySlug(slug: string): Observable<Entry<PlatformInterface>> {
     const query = { 'fields.slug': slug };
 
-    return this.getPlatforms(query)
-      .then(res => res[0])
-      .catch(_ => null);
+    return this.getPlatforms(query).pipe(
+      map(res => res.items[0]),
+    );
   }
 
   public getPlatformGames(id: string): Promise<Entry<GameInterface>[]> {

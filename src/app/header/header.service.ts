@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ContentfulService } from '../core/contentful.service';
+import { map, take } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +12,10 @@ export class HeaderService {
   ) { }
 
   public loadPlatforms() {
-    return this.contentfulService.getPlatforms()
-      .then(entries => entries.map(entry => entry.fields));
+    return this.contentfulService.getPlatforms().pipe(
+      take(1),
+      map(collection => collection.items.map(entry => entry.fields)),
+    );
   }
 
   public loadGenres(query) {

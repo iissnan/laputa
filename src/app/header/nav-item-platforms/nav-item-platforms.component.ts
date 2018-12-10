@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, from } from 'rxjs';
+import { Observable } from 'rxjs';
 
 import { PlatformInterface } from '../../typings';
 import { HeaderService } from '../header.service';
@@ -19,7 +19,7 @@ export class NavItemPlatformsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.children$ = from(this.headerService.loadPlatforms());
+    this.children$ = this.headerService.loadPlatforms();
   }
 
 }

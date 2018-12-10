@@ -2,7 +2,15 @@
   {{ caption }}
   <small *ngIf="count" class="count">{{ count }} 款游戏</small>
 </div>
-<div class="list" *ngIf="games">
-  <laputa-game-tile [game]="game" *ngFor="let game of games">
-  </laputa-game-tile>
+
+<ng-container *ngIf="games?.length > 0">
+  <div class="list" >
+    <laputa-game-tile [game]="game" *ngFor="let game of games"></laputa-game-tile>
+  </div>
+  <laputa-pagination></laputa-pagination>
+</ng-container>
+
+
+<div class="list-empty" *ngIf="games?.length === 0">
+  No Games Found.
 </div>
