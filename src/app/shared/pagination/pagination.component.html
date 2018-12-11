@@ -1,6 +1,10 @@
 <div class="pagination">
-  <a [routerLink]="link" [queryParams]="{ page: page }"
-     class="pagination-item"
-     [ngClass]="{ 'active': page === current }"
-     *ngFor="let page of pages">{{ page }}</a>
+  <ul>
+    <li class="pagination-item"
+        [ngClass]="{ 'active': page === current }"
+        *ngFor="let page of (pages + 1) | range: 1"
+        (click)="onPageSelect(page)">
+      {{ page }}
+    </li>
+  </ul>
 </div>

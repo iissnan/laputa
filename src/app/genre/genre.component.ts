@@ -38,7 +38,9 @@ export class GenreComponent implements OnInit, OnDestroy {
     ).subscribe(genre => {
       this.label = genre.fields.label;
       this.genreService.loadGenreGames(genre.sys.id)
-        .then(games => this.games = games);
+        .subscribe(res => {
+          this.games = res.items;
+        });
     });
   }
 

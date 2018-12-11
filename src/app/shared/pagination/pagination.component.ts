@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'laputa-pagination',
@@ -7,13 +7,21 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class PaginationComponent implements OnInit {
 
-  @Input() link: string;
-  @Input() current: number;
-  @Input() pages: number[];
+  @Input() perPage = 15;
+  @Input() current = 1;
+  @Input() total: number;
+  @Output() pageSelect = new EventEmitter<number>();
+
+  public pages: number;
 
   constructor() { }
 
   ngOnInit() {
+    this.pages = Math.ceil(this.total / this.perPage);
+  }
+
+  onPageSelect(page) {
+    this.pageSelect.emit(page);
   }
 
 }

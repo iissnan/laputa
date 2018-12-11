@@ -38,7 +38,9 @@ export class PlatformComponent implements OnInit, OnDestroy {
     ).subscribe(platform => {
       this.name = platform.fields.name;
       this.platformService.loadPlatformGames(platform.sys.id)
-        .then(games => this.games = games);
+        .subscribe(res => {
+          this.games = res.items;
+        });
     });
   }
 

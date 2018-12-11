@@ -1,6 +1,13 @@
 <ng-container *ngIf="games; else loading">
   <laputa-game-headline title="所有游戏" [count]="total"></laputa-game-headline>
-  <laputa-game-list-table [games]="games"></laputa-game-list-table>
+  <ng-container *ngIf="!isGamesLoading; else gameLoading">
+    <laputa-game-list-table [games]="games"></laputa-game-list-table>
+    <laputa-pagination [total]="total" [perPage]="perPage"
+                       [current]="currentPage" (pageSelect)="onPageSelect($event)"></laputa-pagination>
+  </ng-container>
+  <ng-template #gameLoading>
+    <laputa-spinner></laputa-spinner>
+  </ng-template>
 </ng-container>
 
 <ng-template #loading>

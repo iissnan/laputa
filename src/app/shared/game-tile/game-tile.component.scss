@@ -15,15 +15,18 @@
   background: #000;
   border: 1px solid transparent;
   border-radius: 4px;
-  transition: all ease-in .2s;
 
   &:hover{
     border-color: $primary;
     text-decoration: none;
 
     ::ng-deep .cover {
-      transform: scale(1.08) rotate(-0.3deg);
+      transform: scale(1.08);
     }
+  }
+
+  &:active {
+    transform: scale(0.8);
   }
 }
 
@@ -55,6 +58,10 @@
   align-items: center;
   padding: 5px 10px;
   width: 100%;
+}
+
+.platforms {
+  display: flex;
 }
 
 .extra-information {

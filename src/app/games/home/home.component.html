@@ -5,10 +5,10 @@
       <li *ngFor="let platform of platforms">
         <a routerLink="/games" [queryParams]="{ platform: platform.slug }"
            (click)="onPlatformSelected(platform.slug)"
-           [class.active]="platform.slug === selectedPlatform">
+           [class.active]="platform.slug === queryPlatform">
           <laputa-game-platform-icon [platformName]="platform.name"></laputa-game-platform-icon>
           <span class="label">{{ platform.label }}</span>
-          <span class="remove" *ngIf="platform.slug === selectedPlatform">&times;</span>
+          <span class="remove" *ngIf="platform.slug === queryPlatform">&times;</span>
         </a>
       </li>
     </ul>
@@ -26,6 +26,8 @@
       <ng-container *ngIf="!shouldDisplayLandingGames">
         <laputa-game-list [caption]="queryCaption" [count]="queryCount" [games]="queryGames">
         </laputa-game-list>
+        <laputa-pagination [total]="queryCount" [perPage]="perPage"
+                           [current]="queryPage" (pageSelect)="onPageSelect($event)"></laputa-pagination>
       </ng-container>
     </section>
     <ng-template #gameLoading>

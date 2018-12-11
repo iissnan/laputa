@@ -36,8 +36,11 @@ export class GameComponent implements OnInit, OnDestroy {
       }),
     ).subscribe(game => {
       this.game = game;
-      this.screenshots = this.getGalleryItems();
-      galleryRef.load(this.screenshots);
+
+      if (this.game.fields.screenshots) {
+        this.screenshots = this.getGalleryItems();
+        galleryRef.load(this.screenshots);
+      }
     });
   }
 
