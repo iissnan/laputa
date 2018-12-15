@@ -1,3 +1,17 @@
-<p>
-  featured works!
-</p>
+<div class="main" *ngIf="games; else loading">
+  <div class="content">
+    <section *ngIf="!isGamesLoading; else gameLoading">
+      <laputa-game-list caption="推荐游戏" [count]="total" [games]="games">
+      </laputa-game-list>
+      <laputa-pagination [total]="total" [perPage]="perPage"
+                         [current]="currentPage" (pageSelect)="onPageSelect($event)"></laputa-pagination>
+    </section>
+    <ng-template #gameLoading>
+      <laputa-spinner></laputa-spinner>
+    </ng-template>
+  </div>
+</div>
+
+<ng-template #loading>
+  <laputa-spinner></laputa-spinner>
+</ng-template>

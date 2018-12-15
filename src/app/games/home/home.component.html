@@ -1,23 +1,15 @@
 <div class="main" *ngIf="queryGames || (featuredGames && latestGames); else loading">
-  <aside>
-    <h3>游戏平台</h3>
-    <ul *ngIf="platforms$ | async as platforms">
-      <li *ngFor="let platform of platforms">
-        <a routerLink="/games" [queryParams]="{ platform: platform.slug }"
-           (click)="onPlatformSelected(platform.slug)"
-           [class.active]="platform.slug === queryPlatform">
-          <laputa-game-platform-icon [platformName]="platform.name"></laputa-game-platform-icon>
-          <span class="label">{{ platform.label }}</span>
-          <span class="remove" *ngIf="platform.slug === queryPlatform">&times;</span>
-        </a>
-      </li>
-    </ul>
-  </aside>
   <div class="content">
     <section *ngIf="!isGamesLoading; else gameLoading">
       <ng-container *ngIf="shouldDisplayLandingGames">
         <div class="featured-games">
           <laputa-game-list caption="推荐游戏" [games]="featuredGames"></laputa-game-list>
+          <div class="more-featured-games">
+            <a routerLink="/games/featured" class="see-more-featured-games">
+              查看更多推荐
+              <fa-icon icon="angle-right"></fa-icon>
+            </a>
+          </div>
         </div>
         <div class="latest-games">
           <laputa-game-list caption="最近更新" [games]="latestGames"></laputa-game-list>

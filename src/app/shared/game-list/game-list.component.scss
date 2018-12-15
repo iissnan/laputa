@@ -2,19 +2,20 @@
 
 :host {
   display: block;
-  margin: 0 auto;
-  max-width: 1200px;
 }
 
-.caption {
-  padding: 0 10px;
-  font-size: 20px;
-  font-weight: 300;
+.headline {
+  margin: 40px 0;
+  text-align: center;
   color: $light-4;
 }
 
+.caption {
+  font-size: 26px;
+  font-weight: 300;
+}
+
 .count {
-  font-size: 15px;
   color: $light-2;
 }
 
@@ -25,6 +26,25 @@
 }
 
 .list-empty {
-  margin-top: 20px;
-  padding: 0 10px;
+  position: relative;
+  padding: 30px;
+  text-align: center;
+  color: $light-2;
+
+  img {
+    max-width: 600px;
+    opacity: .3;
+  }
+
+  p {
+    margin-top: 15px;
+  }
+}
+
+laputa-game-tile {
+  padding: 15px 30px 15px 0;
+
+  &:nth-child(4n) {
+    padding-right: 0;
+  }
 }

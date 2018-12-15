@@ -6,6 +6,7 @@ import {
   faStar,
   faAngleDown,
   faAngleUp,
+  faAngleRight,
   faGamepad,
   faThList,
   faHome,
@@ -16,6 +17,8 @@ import {
   faCheckCircle,
   faTimesCircle,
   faUser,
+  faThumbsUp,
+  faThumbsDown,
 } from '@fortawesome/free-regular-svg-icons';
 
 import {
@@ -44,6 +47,7 @@ export class IconModule {
       faStar,
       faAngleDown,
       faAngleUp,
+      faAngleRight,
       faGamepad,
       faThList,
       faHome,
@@ -52,6 +56,8 @@ export class IconModule {
       faCheckCircle,
       faTimesCircle,
       faUser,
+      faThumbsUp,
+      faThumbsDown,
 
       // Brands Icons
       faNintendoSwitch,

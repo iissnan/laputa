@@ -2,7 +2,6 @@
 
 :host {
   display: block;
-  padding: 20px;
   width: 25%;
 }
 
@@ -12,13 +11,14 @@
   overflow: hidden;
   height: 100%;
   padding: 0 20px 20px;
-  background: #000;
+  background: $dark-0;
   border: 1px solid transparent;
   border-radius: 4px;
+  color: $light-2;
 
   &:hover{
-    border-color: $primary;
     text-decoration: none;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.8);
 
     ::ng-deep .cover {
       transform: scale(1.08);
@@ -69,11 +69,47 @@
 }
 
 .name {
-  color: $primary;
-  font-size: 16px;
+  color: $light-4;
   font-weight: normal;
 }
 
 .genres {
-  color: $light-2;
+  font-size: 14px;
+}
+
+.flags {
+  margin-top: 15px;
+}
+
+.chinese,
+.format,
+.featured {
+  display: inline-block;
+  margin-right: 5px;
+  padding: 2px;
+  border: 1px solid;
+  border-radius: 2px;
+  line-height: 1;
+  font-size: 12px;
+  opacity: .6;
+}
+
+.chinese {
+  color: $loading-color-red;
+  border-color: $loading-color-red;
+}
+
+.format.physical {
+  color: $loading-color-yellow;
+  border-color: $loading-color-yellow;
+}
+
+.format.digital {
+  color: $loading-color-blue;
+  border-color: $loading-color-blue;
+}
+
+.featured {
+  color: $loading-color-green;
+  border-color: $loading-color-green;
 }

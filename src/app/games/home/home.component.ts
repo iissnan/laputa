@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ViewportScroller } from '@angular/common';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Entry } from 'contentful';
-import { Observable, zip } from 'rxjs';
+import { zip } from 'rxjs';
 import { map, switchMap, take, tap } from 'rxjs/operators';
 
-import { GameInterface, PlatformInterface } from '../../typings';
+import { GameInterface } from '../../typings';
 import { ContentfulService } from '../../core/contentful.service';
 import { GamesService } from '../games.service';
 
@@ -17,7 +17,6 @@ import { GamesService } from '../games.service';
 })
 export class HomeComponent implements OnInit {
 
-  public platforms$: Observable<PlatformInterface[]>;
   public queryGames: Entry<GameInterface>[];
   public featuredGames: Entry<GameInterface>[];
   public latestGames: Entry<GameInterface>[];
@@ -38,25 +37,12 @@ export class HomeComponent implements OnInit {
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private viewportScroller: ViewportScroller,
-  private contentfulService: ContentfulService,
+    private contentfulService: ContentfulService,
     private gamesService: GamesService
   ) { }
 
   ngOnInit() {
     this.onRouteQuery();
-    this.loadPlatforms();
-  }
-
-  public onPlatformSelected(platform) {
-    const isActive = this.queryPlatform === platform;
-    const query = {
-      platform: isActive ? null : platform,
-    };
-
-    this.router.navigate(['.'], {
-      relativeTo: this.activatedRoute,
-      queryParams: query
-    });
   }
 
   public onPageSelect(page) {
@@ -98,13 +84,6 @@ export class HomeComponent implements OnInit {
     };
   }
 
-  private loadPlatforms() {
-    this.platforms$ = this.contentfulService.getPlatforms().pipe(
-      take(1),
-      map(collection => collection.items.map(entry => entry.fields)),
-    );
-  }
-
   private loadQueryGames() {
     const games$ = this.queryPlatform
       ? this.loadQueryPlatformGames(this.queryPlatform)
@@ -134,7 +113,9 @@ export class HomeComponent implements OnInit {
 
   private loadLandingGames() {
     zip(
-      this.gamesService.loadFeaturedGames(),
+      this.gamesService.loadFeaturedGames({ limit: 8 }).pipe(
+        map(res => res.items),
+      ),
       this.gamesService.loadLatestGames(),
     ).pipe(take(1)).subscribe(([featureGames, latestGames]) => {
       this.featuredGames = featureGames;

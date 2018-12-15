@@ -8,6 +8,8 @@ import { Component, Input, OnInit } from '@angular/core';
 export class GameGenreComponent implements OnInit {
 
   @Input() genre: string;
+  @Input() isLast: boolean;
+  @Input() separator = '/';
 
   constructor() { }
 

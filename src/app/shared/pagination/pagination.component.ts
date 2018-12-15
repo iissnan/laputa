@@ -21,6 +21,10 @@ export class PaginationComponent implements OnInit {
   }
 
   onPageSelect(page) {
+    if (page === this.current) {
+      return;
+    }
+
     this.pageSelect.emit(page);
   }
 

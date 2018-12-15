@@ -12,14 +12,12 @@ export class GamesService {
     private contentfulService: ContentfulService,
   ) { }
 
-  public loadFeaturedGames() {
+  public loadFeaturedGames(query?) {
     return this.contentfulService.getGames({
       'fields.featured': true,
       'order': '-fields.rating,-sys.createdAt',
-      'limit': 8,
-    }).pipe(
-      map(res => res.items),
-    );
+      ...query,
+    });
   }
 
   public loadLatestGames() {

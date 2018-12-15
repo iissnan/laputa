@@ -13,9 +13,9 @@
 
 .pagination-item {
   margin: 5px;
-  padding: 3px 10px;
+  padding: 5px 15px;
   font-size: 13px;
-  background: $dark-0;
+  background: $dark-1;
   text-decoration: none;
   border-radius: 4px;
   color: $light-3;
@@ -23,12 +23,13 @@
 
   &:hover {
     color: white;
-    background: $primary;
+    background: $dark-0;
   }
 
   &.active {
     transform: scale(1.1);
     color: white;
-    background: $primary;
+    cursor: default;
+    background: none;
   }
 }

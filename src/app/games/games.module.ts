@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { AllComponent } from './all/all.component';
 import { FeaturedComponent } from './featured/featured.component';
 import { GameComponent } from './game/game.component';
+import { GamesComponent } from './games.component';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { GameComponent } from './game/game.component';
     AllComponent,
     FeaturedComponent,
     GameComponent,
+    GamesComponent,
   ],
   imports: [
     CommonModule,

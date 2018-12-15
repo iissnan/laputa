@@ -1,0 +1,42 @@
+@import "variables";
+
+.platforms {
+  background-color: $dark-2;
+  border-bottom: 1px solid $dark-0;
+
+  ul {
+    display: flex;
+    margin: 0 auto;
+    max-width: $max-container-width-large;
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    margin: 10px 8px 10px 0;
+    padding: 6px 10px;
+    color: $light-4;
+    border-radius: 4px;
+    transition: .2s ease;
+    text-decoration: none;
+
+    &:hover,
+    &.active {
+      color: white;
+      background: $dark-0;
+    }
+  }
+
+  .label {
+    margin-left: 5px;
+    flex: 1;
+  }
+
+  .active .remove {
+    margin-left: 15px;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: normal;
+  }
+}

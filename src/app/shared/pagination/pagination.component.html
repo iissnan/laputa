@@ -1,4 +1,4 @@
-<div class="pagination">
+<div class="pagination" *ngIf="pages > 1">
   <ul>
     <li class="pagination-item"
         [ngClass]="{ 'active': page === current }"
