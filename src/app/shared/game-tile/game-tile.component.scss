@@ -64,6 +64,16 @@
   display: flex;
 }
 
+.completed {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  padding: 2px 5px;
+  background: rgba(0,0,0, .5);
+  border-radius: 4px;
+  color: $loading-color-green;
+}
+
 .extra-information {
   margin-top: 20px;
 }
