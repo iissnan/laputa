@@ -46,10 +46,10 @@ ul { list-style: none; }
   height: 100%;
 
   .la-ball {
-    & > div:nth-child(1) { color: $loading-color-red; }
-    & > div:nth-child(2) { color: $loading-color-green; }
-    & > div:nth-child(3) { color: $loading-color-blue; }
-    & > div:nth-child(4) { color: $loading-color-yellow; }
+    & > div:nth-child(1) { color: $loading-color-yellow; }
+    & > div:nth-child(2) { color: $loading-color-blue; }
+    & > div:nth-child(3) { color: $loading-color-red; }
+    & > div:nth-child(4) { color: $loading-color-green; }
   }
 }
 
