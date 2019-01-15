@@ -1,4 +1,5 @@
 @import "variables";
+@import "mixins";
 
 .platforms {
   background-color: $dark-2;
@@ -7,7 +8,12 @@
   ul {
     display: flex;
     margin: 0 auto;
+    padding: 0 15px;
     max-width: $max-container-width-large;
+
+    @include respond-to(tablet-mobile) {
+      overflow: auto;
+    }
   }
 
   a {
@@ -15,6 +21,7 @@
     align-items: center;
     margin: 10px 8px 10px 0;
     padding: 6px 10px;
+    white-space: nowrap;
     color: $light-4;
     border-radius: 4px;
     transition: .2s ease;

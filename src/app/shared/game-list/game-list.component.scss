@@ -1,11 +1,12 @@
 @import "variables";
+@import "mixins";
 
 :host {
   display: block;
 }
 
 .headline {
-  margin: 40px 0;
+  margin: 40px 15px;
   text-align: center;
   color: $light-4;
 }
@@ -42,9 +43,18 @@
 }
 
 laputa-game-tile {
-  padding: 15px 30px 15px 0;
+  margin: 0 15px 30px 15px;
 
-  &:nth-child(4n) {
-    padding-right: 0;
+  @include respond-to(desktop) {
+    width: calc(25% - 30px);
   }
+
+  @include respond-to(tablet) {
+    width: calc(50% - 30px);
+  }
+
+  @include respond-to(mobile) {
+    width: calc(100% - 30px);
+  }
+
 }

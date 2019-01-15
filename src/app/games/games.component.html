@@ -1,5 +1,8 @@
 <div class="platforms">
   <ul *ngIf="platforms$ | async as platforms">
+    <li>
+      <a routerLink="/games" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+    </li>
     <li *ngFor="let platform of platforms">
       <a routerLink="/games" [queryParams]="{ platform: platform.slug }"
          (click)="onPlatformSelected(platform.slug)"

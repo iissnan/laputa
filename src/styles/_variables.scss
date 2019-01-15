@@ -1,3 +1,11 @@
+$BREAKPOINTS: (
+  tablet-mobile: max-width 991px,
+  mobile: max-width 767px,
+  tablet: 768px 991px,
+  desktop: 992px,
+  desktop-md: 1200px
+) !global;
+
 $dark-0: #000000;
 $dark-1: #121621;
 $dark-2: #171C28;
