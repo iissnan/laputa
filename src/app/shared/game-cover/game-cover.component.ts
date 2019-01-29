@@ -10,7 +10,7 @@ export class GameCoverComponent implements OnInit {
 
   @Input() cover: Asset;
 
-  public width = 220;
+  public width = 250;
 
   constructor() { }
 

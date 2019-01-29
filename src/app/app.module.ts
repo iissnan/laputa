@@ -10,6 +10,7 @@ import { HeaderModule } from './header/header.module';
 import { FooterModule } from './footer/footer.module';
 import { PlatformModule } from './platform/platform.module';
 import { GenreModule } from './genre/genre.module';
+import { AnalysisModule } from './analysis/analysis.module';
 import { AppComponent } from './app.component';
 
 @NgModule({
@@ -19,6 +20,7 @@ import { AppComponent } from './app.component';
     BrowserAnimationsModule,
     CoreModule,
     GamesModule,
+    AnalysisModule,
     AppRoutingModule,
     SharedModule,
     HeaderModule,

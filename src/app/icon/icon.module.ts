@@ -10,7 +10,7 @@ import {
   faGamepad,
   faThList,
   faHome,
-
+  faChartPie,
 } from '@fortawesome/free-solid-svg-icons';
 
 import {
@@ -19,6 +19,7 @@ import {
   faUser,
   faThumbsUp,
   faThumbsDown,
+  faChartBar,
 } from '@fortawesome/free-regular-svg-icons';
 
 import {
@@ -58,6 +59,8 @@ export class IconModule {
       faUser,
       faThumbsUp,
       faThumbsDown,
+      faChartBar,
+      faChartPie,
 
       // Brands Icons
       faNintendoSwitch,

@@ -15,6 +15,13 @@ header {
   color: white;
 }
 
-laputa-brand {
-  flex: 1;
+laputa-brand {}
+
+.analysis {
+  font-size: 13px;
+  color: $light-4;
+  transition: .3s;
+  &:hover {
+    color: $primary;
+  }
 }

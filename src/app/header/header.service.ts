@@ -19,7 +19,9 @@ export class HeaderService {
   }
 
   public loadGenres(query) {
-    return this.contentfulService.getGenres(query)
-      .then(entries  => entries.map(entry => entry.fields));
+    return this.contentfulService.getGenres(query).pipe(
+      take(1),
+      map(collection => collection.items.map(entry => entry.fields))
+    );
   }
 }

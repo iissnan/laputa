@@ -25,30 +25,14 @@
 
   .image {
     display: block;
-    width: 24px;
-    height: 24px;
+    width: 22px;
+    height: 22px;
     border-radius: 2px;
     background-size: contain;
     background-repeat: no-repeat;
   }
 }
 
-.nintendo-switch {
-  background-color: $platform-color-nintendo-switch;
-}
-
-.xbox-one {
-  background-color: $platform-color-xbox;
-}
-
-.steam {
-  background-color: $platform-color-steam;
-}
-
-.ios {
-  background-color: $platform-color-ios;
-}
-
 .wegame ::ng-deep .image {
-  background-image: url('/assets/images/wegame_128.png');
+  background-image: url('/assets/images/wegame.svg');
 }

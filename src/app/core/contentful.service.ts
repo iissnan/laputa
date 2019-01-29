@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { createClient, ContentfulClientApi, Entry, EntryCollection } from 'contentful';
-import { Observable, from as $from } from 'rxjs';
-import { map, mapTo, take } from 'rxjs/operators';
+import { ContentfulClientApi, createClient, Entry, EntryCollection } from 'contentful';
+import { from as $from, Observable } from 'rxjs';
+import { map, take } from 'rxjs/operators';
 
 import { environment } from '../../environments/environment';
 import { GameInterface, GenreInterface, PlatformInterface } from '../typings';
@@ -95,23 +95,21 @@ export class ContentfulService {
     });
   }
 
-  public getGenres(options?: object): Promise<Entry<GenreInterface>[]> {
+  public getGenres(options?: object): Observable<EntryCollection<GenreInterface>> {
     const query = this.getContentTypeQuery(
       environment.contentful.contentTypes.genre,
       options,
     );
 
-    return this.client.getEntries<GenreInterface>(query)
-      .then(res => res.items)
-      .catch(_ => []);
+    return $from(this.client.getEntries<GenreInterface>(query));
   }
 
-  public getGenreBySlug(slug: string): Promise<Entry<GenreInterface>> {
+  public getGenreBySlug(slug: string): Observable<Entry<GenreInterface>> {
     const query = { 'fields.slug': slug };
 
-    return this.getGenres(query)
-      .then(res => res[0])
-      .catch(_ => null);
+    return this.getGenres(query).pipe(
+      map(res => res.items[0]),
+    );
   }
 
   public getGenreGames(id: string): Observable<EntryCollection<GameInterface>> {
