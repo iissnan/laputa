@@ -1,4 +1,5 @@
 @import "variables";
+@import "mixins";
 
 :host {
   display: block;
@@ -183,9 +184,15 @@ section {
 
 .charts {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .games-group-by-platforms-all-chart {
+  @include respond-to(mobile) {
+    width: 100%;
+    height: 150px;
+  }
+
   width: 20%;
   height: 300px;
   flex-grow: 0;
@@ -206,12 +213,18 @@ section {
   }
 }
 
+
 .games-completed-chart {
-  width: 30%;
-  height: 250px;
+  width: 40%;
+}
+.games-completed-platforms-chart {
+  width: 60%;
 }
 
+.games-completed-chart,
 .games-completed-platforms-chart {
-  flex: 1;
-  height: 250px;
+  @include respond-to(mobile) {
+    width: 100%;
+  }
+  height: 300px;
 }

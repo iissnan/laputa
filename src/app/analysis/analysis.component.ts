@@ -10,6 +10,7 @@ import { GameInterface, GenreInterface, PlatformInterface } from '../typings';
   styleUrls: ['./analysis.component.scss']
 })
 export class AnalysisComponent implements OnInit {
+  public isLoading = true;
   public gamesForChart = [];
   public gamesGroupByPlatforms = [];
   public gamesGroupByGenres = [];
@@ -31,6 +32,8 @@ export class AnalysisComponent implements OnInit {
       this.contentfulService.getGenres(),
       this.contentfulService.getGames(),
     ).subscribe(([platformsRes, genresRes, gamesRes]) => {
+      this.isLoading = false;
+
       this.platforms = platformsRes.items;
       this.genres = genresRes.items;
       this.games = gamesRes.items;

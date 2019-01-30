@@ -1,4 +1,4 @@
-<main class="dark-charts">
+<main class="dark-charts" *ngIf="!isLoading else loading">
   <section class="games-group-by-platforms" *ngIf="gamesGroupByPlatforms.length > 0">
     <h2>游戏平台分布</h2>
     <div class="charts">
@@ -32,11 +32,7 @@
     <h2>通关比例</h2>
     <div class="charts">
       <div class="games-completed-chart"  *ngIf="gamesGroupByCompleted.length > 0">
-        <ngx-charts-pie-chart
-          [labels]="true"
-          [labelFormatting]="completedChartLabelFormat"
-          [results]="gamesGroupByCompleted">
-        </ngx-charts-pie-chart>
+        <ngx-charts-advanced-pie-chart [results]="gamesGroupByCompleted"></ngx-charts-advanced-pie-chart>
       </div>
       <div class="games-completed-platforms-chart" *ngIf="gamesGroupByCompletedAndPlatforms.length > 0">
         <ngx-charts-pie-grid [results]="gamesGroupByCompletedAndPlatforms"></ngx-charts-pie-grid>
@@ -45,4 +41,6 @@
   </section>
 </main>
 
-
+<ng-template #loading>
+  <laputa-spinner></laputa-spinner>
+</ng-template>
