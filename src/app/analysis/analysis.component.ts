@@ -47,10 +47,6 @@ export class AnalysisComponent implements OnInit {
 
   }
 
-  public completedChartLabelFormat(label) {
-    return label === 'completed' ? '已通关' : '未通关';
-  }
-
   private getGames() {
     return [{
       name: '所有游戏',

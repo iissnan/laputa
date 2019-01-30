@@ -30,14 +30,6 @@
   .indicator { opacity: 1; }
 }
 
-.name {
-  margin-left: 5px;
-  font-size: 16px;
-  font-family: Righteous, -apple-system, sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-}
-
 .indicator {
   opacity: 0;
   transition: .2s ease;
