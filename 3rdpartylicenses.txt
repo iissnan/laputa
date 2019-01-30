@@ -481,7 +481,7 @@ MIT
 MIT
 The MIT License
 
-Copyright (c) 2018 Google LLC.
+Copyright (c) 2019 Google LLC.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -522,7 +522,7 @@ In the Font Awesome Free download, the CC BY 4.0 license applies to all icons
 packaged as SVG and JS file types.
 
 # Fonts: SIL OFL 1.1 License (https://scripts.sil.org/OFL)
-In the Font Awesome Free download, the SIL OLF license applies to all icons
+In the Font Awesome Free download, the SIL OFL license applies to all icons
 packaged as web and desktop font files.
 
 # Code: MIT License (https://opensource.org/licenses/MIT)
@@ -530,7 +530,7 @@ In the Font Awesome Free download, the MIT license applies to all non-font and
 non-icon files.
 
 # Attribution
-Attribution is required by MIT, SIL OLF, and CC BY licenses. Downloaded Font
+Attribution is required by MIT, SIL OFL, and CC BY licenses. Downloaded Font
 Awesome Free files already contain embedded comments with sufficient
 attribution, so you shouldn't need to do anything additional when using these
 files normally.
@@ -956,7 +956,7 @@ In the Font Awesome Free download, the CC BY 4.0 license applies to all icons
 packaged as SVG and JS file types.
 
 # Fonts: SIL OFL 1.1 License (https://scripts.sil.org/OFL)
-In the Font Awesome Free download, the SIL OLF license applies to all icons
+In the Font Awesome Free download, the SIL OFL license applies to all icons
 packaged as web and desktop font files.
 
 # Code: MIT License (https://opensource.org/licenses/MIT)
@@ -964,7 +964,7 @@ In the Font Awesome Free download, the MIT license applies to all non-font and
 non-icon files.
 
 # Attribution
-Attribution is required by MIT, SIL OLF, and CC BY licenses. Downloaded Font
+Attribution is required by MIT, SIL OFL, and CC BY licenses. Downloaded Font
 Awesome Free files already contain embedded comments with sufficient
 attribution, so you shouldn't need to do anything additional when using these
 files normally.
@@ -994,7 +994,7 @@ In the Font Awesome Free download, the CC BY 4.0 license applies to all icons
 packaged as SVG and JS file types.
 
 # Fonts: SIL OFL 1.1 License (https://scripts.sil.org/OFL)
-In the Font Awesome Free download, the SIL OLF license applies to all icons
+In the Font Awesome Free download, the SIL OFL license applies to all icons
 packaged as web and desktop font files.
 
 # Code: MIT License (https://opensource.org/licenses/MIT)
@@ -1002,7 +1002,7 @@ In the Font Awesome Free download, the MIT license applies to all non-font and
 non-icon files.
 
 # Attribution
-Attribution is required by MIT, SIL OLF, and CC BY licenses. Downloaded Font
+Attribution is required by MIT, SIL OFL, and CC BY licenses. Downloaded Font
 Awesome Free files already contain embedded comments with sufficient
 attribution, so you shouldn't need to do anything additional when using these
 files normally.
@@ -1032,7 +1032,7 @@ In the Font Awesome Free download, the CC BY 4.0 license applies to all icons
 packaged as SVG and JS file types.
 
 # Fonts: SIL OFL 1.1 License (https://scripts.sil.org/OFL)
-In the Font Awesome Free download, the SIL OLF license applies to all icons
+In the Font Awesome Free download, the SIL OFL license applies to all icons
 packaged as web and desktop font files.
 
 # Code: MIT License (https://opensource.org/licenses/MIT)
@@ -1040,7 +1040,7 @@ In the Font Awesome Free download, the MIT license applies to all non-font and
 non-icon files.
 
 # Attribution
-Attribution is required by MIT, SIL OLF, and CC BY licenses. Downloaded Font
+Attribution is required by MIT, SIL OFL, and CC BY licenses. Downloaded Font
 Awesome Free files already contain embedded comments with sufficient
 attribution, so you shouldn't need to do anything additional when using these
 files normally.
