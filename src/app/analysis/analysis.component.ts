@@ -16,6 +16,8 @@ export class AnalysisComponent implements OnInit {
   public gamesGroupByGenres = [];
   public gamesGroupByCompleted = [];
   public gamesGroupByCompletedAndPlatforms = [];
+  public prices = [];
+  public priceGroupByPlatforms = [];
 
   private games: Entry<GameInterface>[] = [];
   private platforms: Entry<PlatformInterface>[] = [];
@@ -43,6 +45,8 @@ export class AnalysisComponent implements OnInit {
       this.gamesGroupByGenres = this.getGamesGroupByGenres();
       this.gamesGroupByCompleted = this.getGamesGroupByCompleted();
       this.gamesGroupByCompletedAndPlatforms = this.getGamesGroupByCompletedAndPlatforms();
+      this.prices = this.getPrices();
+      this.priceGroupByPlatforms = this.getPriceGroupByPlatforms();
     });
 
   }
@@ -169,4 +173,53 @@ export class AnalysisComponent implements OnInit {
     });
   }
 
+  private getPrices() {
+    return [{
+      name: '总价格',
+      value: this.games.reduce((total, game) => {
+        const gamePrices = game.fields.purchased.reduce((gameTotal, purchased) => {
+          return gameTotal + purchased.fields.price;
+        }, 0);
+        return gamePrices + total;
+      }, 0),
+    }];
+  }
+
+  private getPriceGroupByPlatforms() {
+    const pricesCount = {};
+
+    this.platforms.forEach(platform => {
+      const platformName = platform.fields.name;
+      pricesCount[platformName] = 0;
+    });
+
+    this.games.forEach(game => {
+      const gamePlatforms = game.fields.platforms;
+
+      gamePlatforms.forEach(platform => {
+        const platformName = platform.fields.name;
+        const isPlatformExist = pricesCount[platformName] !== void 0;
+
+        if (isPlatformExist) {
+          game.fields.purchased.forEach(purchased => {
+            const hasPurchased = purchased;
+            const hasPurchasedPlatform = purchased.fields.platform;
+            const isPlatformMatched = purchased.fields.platform.fields.name === platformName;
+
+            if (hasPurchased && hasPurchasedPlatform && isPlatformMatched) {
+              pricesCount[platformName] += purchased.fields.price;
+            }
+          });
+        }
+
+      });
+    });
+
+    return Object.keys(pricesCount).map(platformName => {
+      return {
+        name: platformName,
+        value: pricesCount[platformName],
+      };
+    });
+  }
 }

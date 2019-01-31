@@ -1,6 +1,7 @@
 import { Asset, Entry } from 'contentful';
 import { PlatformInterface } from './platform.interface';
 import { GenreInterface } from './genre.interface';
+import { PurchasedInterface } from './purchased.interface';
 
 export interface GameInterface {
   id: string;
@@ -15,12 +16,5 @@ export interface GameInterface {
   players: number;
   completed: boolean;
   screenshots: Asset[];
-  purchased: {
-    fields: {
-      price: number;
-      date: string;
-      channel: string;
-      comment: string;
-    };
-  };
+  purchased: Entry<PurchasedInterface>[];
 }

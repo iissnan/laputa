@@ -228,3 +228,17 @@ section {
   }
   height: 300px;
 }
+
+.games-prices-all-chart {
+  @include respond-to(mobile) {
+    width: 100%;
+    height: 150px;
+  }
+
+  width: 20%;
+}
+
+.games-prices-chart {
+  flex: 1;
+  height: 300px;
+}

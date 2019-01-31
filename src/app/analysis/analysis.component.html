@@ -39,6 +39,25 @@
       </div>
     </div>
   </section>
+
+  <section class="games-prices">
+    <h2>花费统计</h2>
+    <div class="charts">
+      <div class="games-prices-all-chart" *ngIf="prices.length > 0">
+        <ngx-charts-number-card
+          cardColor="#232837"
+          [results]="prices"></ngx-charts-number-card>
+      </div>
+      <div class="games-prices-chart" *ngIf="priceGroupByPlatforms.length > 0">
+        <ngx-charts-bar-vertical
+          [xAxis]="true"
+          [yAxis]="true"
+          [showDataLabel]="true"
+          [roundEdges]="false"
+          [results]="priceGroupByPlatforms"></ngx-charts-bar-vertical>
+      </div>
+    </div>
+  </section>
 </main>
 
 <ng-template #loading>
