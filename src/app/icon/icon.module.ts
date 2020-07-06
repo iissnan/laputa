@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { library } from '@fortawesome/fontawesome-svg-core';
+import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {
   faStar,
   faAngleDown,
@@ -23,7 +22,6 @@ import {
 } from '@fortawesome/free-regular-svg-icons';
 
 import {
-  faNintendoSwitch,
   faXbox,
   faPlaystation,
   faAppStore,
@@ -36,6 +34,7 @@ import {
   declarations: [],
   imports: [
     CommonModule,
+    FontAwesomeModule,
   ],
   exports: [
     FontAwesomeModule,
@@ -43,7 +42,7 @@ import {
 })
 export class IconModule {
 
-  constructor() {
+  constructor(library: FaIconLibrary) {
     const icons = [
       faStar,
       faAngleDown,
@@ -63,14 +62,13 @@ export class IconModule {
       faChartPie,
 
       // Brands Icons
-      faNintendoSwitch,
       faXbox,
       faPlaystation,
       faAppStore,
       faSteam,
       faFortAwesomeAlt,
     ];
-    library.add(...icons);
+    library.addIcons(...icons);
   }
 
 }

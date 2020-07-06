@@ -3,7 +3,6 @@ import { Component, Input, OnInit } from '@angular/core';
 const iconSupportedPlatforms: {
   [key: string]: string;
 } = {
-  'Nintendo Switch': 'nintendo-switch',
   'Xbox One': 'xbox',
   'Play Station 4': 'playstation',
   'Steam': 'steam',
