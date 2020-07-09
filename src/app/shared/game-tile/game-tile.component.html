@@ -8,9 +8,10 @@
       </div>
       <laputa-game-rating *ngIf="game.fields.rating" [rating]="game.fields.rating"></laputa-game-rating>
     </div>
-    <span class="completed" *ngIf="game.fields.completed" title="已通关">
-        <fa-icon [icon]="['far', 'check-circle']"></fa-icon>
-      </span>
+    <div class="completed" *ngIf="game.fields.completed" title="已通关">
+      <fa-icon [icon]="['far', 'check-circle']"></fa-icon>
+      <span class="completed-label">已通关</span>
+    </div>
   </div>
 
   <div class="extra-information">

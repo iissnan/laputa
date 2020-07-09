@@ -2,7 +2,7 @@
 
 :host {
   display: inline-block;
-  margin-right: 10px;
+  margin-right: 4px;
 
   &:last-child {
     margin-right: 0;
@@ -33,6 +33,13 @@
   }
 }
 
+.nintendo-switch ::ng-deep .image {
+  background-image: url('/assets/images/nintendo-switch.svg');
+  background-size: 18px 18px;
+  background-position: 0 50%;
+}
+
 .wegame ::ng-deep .image {
   background-image: url('/assets/images/wegame.svg');
 }
+
