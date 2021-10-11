@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { GamePlatformIconComponent } from './game-platform-icon.component';
 
@@ -6,7 +6,7 @@ describe('GamePlatformIconComponent', () => {
   let component: GamePlatformIconComponent;
   let fixture: ComponentFixture<GamePlatformIconComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ GamePlatformIconComponent ]
     })
