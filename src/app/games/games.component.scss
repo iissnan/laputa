@@ -29,7 +29,7 @@
 
     &:hover,
     &.active {
-      color: white;
+      color: $active;
       background: $dark-0;
     }
   }
@@ -41,7 +41,7 @@
 
   .active .remove {
     margin-left: 15px;
-    color: white;
+    color: $active;
     font-size: 18px;
     font-weight: bold;
     line-height: normal;

@@ -19,4 +19,8 @@ export class GameListComponent implements OnInit {
   ngOnInit() {
   }
 
+  trackBy(index: number, game: Entry<GameInterface>) {
+    return game.fields.id;
+  }
+
 }

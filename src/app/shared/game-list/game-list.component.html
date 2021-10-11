@@ -5,7 +5,7 @@
 
 <ng-container *ngIf="games?.length > 0">
   <div class="list" >
-    <laputa-game-tile [game]="game" *ngFor="let game of games"></laputa-game-tile>
+    <laputa-game-tile [game]="game" *ngFor="let game of games; trackBy: trackBy"></laputa-game-tile>
   </div>
 </ng-container>
 

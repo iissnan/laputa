@@ -25,6 +25,6 @@ deploy:
   skip_cleanup: true
   github_token: "$GITHUB_TOKEN"
   keep_history: true
+  local_dir: dist/laputa
   on:
     branch: master
-  local-dir: dist/laputa

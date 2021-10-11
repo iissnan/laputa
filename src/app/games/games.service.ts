@@ -23,7 +23,7 @@ export class GamesService {
   public loadLatestGames() {
     return this.contentfulService.getGames({
       'order': '-sys.createdAt',
-      'limit': 8,
+      'limit': 20,
     }).pipe(
       map(res => res.items),
     );

@@ -22,10 +22,10 @@ laputa-brand {}
   color: $light-4;
   transition: .3s;
   &:hover {
-    color: $primary;
+    color: $active;
   }
 }
 
 .analysis.active {
-  color: $primary;
+  color: $active;
 }

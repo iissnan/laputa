@@ -23,12 +23,11 @@
       <laputa-game-genre [genre]="genre.fields.label" [isLast]="isLast"
                          *ngFor="let genre of game.fields.genres; let isLast = last"></laputa-game-genre>
     </div>
-  </div>
 
-  <div class="flags">
-    <span class="chinese" *ngIf="game.fields.chinese">中文</span>
-    <span class="format physical" *ngIf="!game.fields.digital">实体卡</span>
-    <span class="featured" *ngIf="game.fields.featured">推荐</span>
+    <div class="flags">
+      <span class="chinese" *ngIf="game.fields.chinese">中文</span>
+      <span class="format physical" *ngIf="!game.fields.digital">实体卡</span>
+      <span class="featured" *ngIf="game.fields.featured">推荐</span>
+    </div>
   </div>
-
 </a>

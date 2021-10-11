@@ -10,7 +10,7 @@
   display: block;
   overflow: hidden;
   height: 100%;
-  padding: 0 10px 15px;
+  padding: 0 15px 20px;
   background: $dark-0;
   border: 1px solid transparent;
   border-radius: 6px;
@@ -18,10 +18,9 @@
 
   &:hover{
     text-decoration: none;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.8);
 
-    ::ng-deep .cover {
-      transform: scale(1.08);
+    .extra-information {
+      top: -5px;
     }
   }
 
@@ -82,20 +81,25 @@
 }
 
 .extra-information {
-  margin-top: 10px;
+  position: relative;
+  top: 0;
+  margin-top: 20px;
+  transition: all 0.2s ease;
 }
 
 .name {
   color: $light-4;
-  font-weight: normal;
+  font-size: 18px;
 }
 
 .genres {
-  font-size: 14px;
+  margin-top: 4px;
+  color: $light-2;
+  font-size: 16px;
 }
 
 .flags {
-  margin-top: 2px;
+  margin-top: 4px;
 }
 
 .chinese,
@@ -107,7 +111,7 @@
   border: 1px solid;
   border-radius: 2px;
   line-height: 1;
-  font-size: 10px;
+  font-size: 12px;
   opacity: .6;
 }
 
