@@ -13,7 +13,7 @@ install:
   - npm install
 
 script:
-  - npm run build -- --prod
+  - npm run build -- --configuration production
   - cp dist/laputa/index.html dist/laputa/404.html
 
 # E: Build LifeCycle
@@ -22,9 +22,9 @@ script:
 # GitHub Pages Deployment
 deploy:
   provider: pages
-  skip-cleanup: true
-  github-token: $GITHUB_TOKEN
-  keep-history: true
+  skip_cleanup: true
+  github_token: "$GITHUB_TOKEN"
+  keep_history: true
   on:
     branch: master
   local-dir: dist/laputa
