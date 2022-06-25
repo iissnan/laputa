@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { GalleryModule } from '@ngx-gallery/core';
-import { LightboxModule } from '@ngx-gallery/lightbox';
+import { GalleryModule } from 'ng-gallery';
 
 import { SharedModule } from '../shared/shared.module';
 import { GamesRoutingModule } from './games-routing.module';
@@ -25,7 +24,6 @@ import { GamesComponent } from './games.component';
     CommonModule,
     RouterModule,
     GalleryModule,
-    LightboxModule,
     SharedModule,
   ],
   exports: [ GamesRoutingModule ],

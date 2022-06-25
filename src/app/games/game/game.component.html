@@ -62,9 +62,7 @@
   <div class="screenshots" *ngIf="screenshots">
     <h3 class="screenshots-title">游戏截图</h3>
     <div class="screenshots-gallery">
-      <img [src]="screenshot.data.thumb"
-           [lightbox]="i" [gallery]="galleryId"
-           *ngFor="let screenshot of screenshots; let i = index" />
+      <gallery [items]="screenshots"></gallery>
     </div>
   </div>
 </div>

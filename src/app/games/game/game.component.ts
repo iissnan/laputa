@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { switchMap, tap } from 'rxjs/operators';
 import { from, Subscription } from 'rxjs';
 import { Entry } from 'contentful';
-import { Gallery, GalleryItem, ImageItem } from '@ngx-gallery/core';
+import { GalleryItem, ImageItem } from 'ng-gallery';
 
 import { ContentfulService } from '../../core/contentful.service';
 import { GameInterface } from '../../typings';
@@ -14,20 +14,16 @@ import { GameInterface } from '../../typings';
   styleUrls: ['./game.component.scss']
 })
 export class GameComponent implements OnInit, OnDestroy {
-
-  public galleryId = 'gallery';
   public game: Entry<GameInterface>;
   public screenshots: GalleryItem[];
   private subscription: Subscription;
 
   constructor(
     private activatedRouted: ActivatedRoute,
-    public gallery: Gallery,
     private contentfulService: ContentfulService,
   ) { }
 
   ngOnInit() {
-    const galleryRef = this.gallery.ref(this.galleryId);
     this.subscription = this.activatedRouted.paramMap.pipe(
       tap(_ => { this.game = null; }),
       switchMap(params => {
@@ -39,7 +35,6 @@ export class GameComponent implements OnInit, OnDestroy {
 
       if (this.game.fields.screenshots) {
         this.screenshots = this.getGalleryItems();
-        galleryRef.load(this.screenshots);
       }
     });
   }
