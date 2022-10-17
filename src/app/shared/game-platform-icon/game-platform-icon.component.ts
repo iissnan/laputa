@@ -1,9 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { IconName } from '@fortawesome/fontawesome-common-types';
 import { SizeProp } from "@fortawesome/fontawesome-svg-core";
 
 const iconSupportedPlatforms: {
-  [key: string]: IconName;
+  [key: string]: any;
 } = {
   'Xbox One': 'xbox',
   'Play Station 4': 'playstation',
@@ -22,7 +21,7 @@ export class GamePlatformIconComponent implements OnInit {
   @Input() iconSize: SizeProp;
 
   public isIconSupport = false;
-  public iconName: IconName;
+  public iconName: any;
 
   constructor() {
   }
