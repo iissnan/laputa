@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import {SizeProp} from "@fortawesome/fontawesome-svg-core";
 
 @Component({
   selector: 'laputa-game-platform',
@@ -8,6 +9,8 @@ import { Component, Input, OnInit } from '@angular/core';
 export class GamePlatformComponent implements OnInit {
 
   @Input() name: string;
+
+  public iconSize: SizeProp = 'lg';
 
   constructor() { }
 
