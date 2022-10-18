@@ -4,8 +4,8 @@ import { SizeProp } from "@fortawesome/fontawesome-svg-core";
 const iconSupportedPlatforms: {
   [key: string]: any;
 } = {
-  'Xbox One': 'xbox',
-  'Play Station 4': 'playstation',
+  'Xbox': 'xbox',
+  'PlayStation': 'playstation',
   'Steam': 'steam',
   'iOS': 'app-store',
 };
