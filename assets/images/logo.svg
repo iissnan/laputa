@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="512px" height="512px" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>Icon</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Icon" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Glyph" transform="translate(33.000000, 33.000000)" fill-rule="nonzero">
+            <rect id="top" fill="#F6D87C" transform="translate(222.994949, 98.994949) rotate(45.000000) translate(-222.994949, -98.994949) " x="152.994949" y="28.9949494" width="140" height="140" rx="70"></rect>
+            <rect id="bottom" fill="#D04863" transform="translate(222.994949, 346.994949) rotate(45.000000) translate(-222.994949, -346.994949) " x="152.994949" y="276.994949" width="140" height="140" rx="70"></rect>
+            <rect id="left" fill="#57CA81" transform="translate(98.994949, 222.994949) rotate(45.000000) translate(-98.994949, -222.994949) " x="28.9949494" y="152.994949" width="140" height="140" rx="70"></rect>
+            <path d="M353.923882,157.923882 L353.923882,157.923882 C389.82239,157.923882 418.923882,187.025373 418.923882,222.923882 L418.923882,222.923882 C418.923882,258.82239 389.82239,287.923882 353.923882,287.923882 L353.923882,287.923882 C318.025373,287.923882 288.923882,258.82239 288.923882,222.923882 L288.923882,222.923882 C288.923882,187.025373 318.025373,157.923882 353.923882,157.923882 Z" id="right" fill="#23C4F8" transform="translate(353.923882, 222.923882) rotate(45.000000) translate(-353.923882, -222.923882) "></path>
+        </g>
+    </g>
+</svg>
